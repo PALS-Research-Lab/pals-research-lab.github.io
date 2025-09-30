@@ -1,2 +1,2 @@
-# pals-research-lab.github.io
-Lab Website
+# PALS Research 
+⚠️ Lab website in progress !
