@@ -1,130 +1,92 @@
-/* --- Base Styles --- */
 :root {
   --hopkins-blue: #002D72;
   --hopkins-gold: #FFD100;
   --light-gray: #f7f9fc;
   --dark-gray: #333;
-  --max-width: 1000px;
 }
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   color: var(--dark-gray);
-  background-color: white;
-  line-height: 1.6;
-  text-align: center;
-}
-
-h1, h2, h3 {
-  color: var(--hopkins-blue);
-  margin-bottom: 0.5em;
-}
-
-p {
-  margin-top: 0;
-}
-
-a {
-  text-decoration: none;
-  color: var(--hopkins-blue);
-  font-weight: 500;
-}
-a:hover {
-  color: var(--hopkins-gold);
-}
-
-.container {
-  width: 90%;
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 2rem 0;
-}
-
-/* --- Header --- */
-.header {
-  background: var(--hopkins-blue);
-  color: white;
-  padding: 3rem 1rem;
-}
-.header .lab-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-.header .tagline {
-  font-size: 1.2rem;
-  color: #e0e6f0;
-}
-
-/* --- Nav --- */
-.nav {
   background: white;
-  border-bottom: 2px solid var(--hopkins-blue);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  text-align: center;
+  line-height: 1.4;
 }
-.nav-list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 0;
-  padding: 1rem 0;
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #002D72, #0048a5);
+  color: white;
+  padding: 2rem 1rem;
 }
-.nav-list li {
+.lab-title {
+  font-size: 2rem;
+  margin: 0.2rem 0;
+}
+.tagline {
+  font-size: 1rem;
+  color: #e0e6f0;
   margin: 0;
 }
 
-/* --- Sections --- */
+/* Sections */
 .section {
-  padding: 4rem 0;
+  padding: 2rem 1rem;
 }
-.mission-section {
+.mission-section,
+.join-section {
   background: var(--light-gray);
 }
+h2 {
+  margin-bottom: 0.5rem;
+  color: var(--hopkins-blue);
+}
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--hopkins-blue);
+}
+p {
+  margin: 0.4rem 0;
+}
+
+/* Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 .project-card {
   background: white;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--hopkins-blue);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
 }
 
-/* --- Join Us --- */
-.join-section {
-  background: var(--light-gray);
-}
+/* Join */
 .hubspot-button {
   display: inline-block;
-  margin: 1rem 0;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
   background: var(--hopkins-blue);
   color: white;
   font-weight: 600;
-  transition: background 0.2s;
+  font-size: 0.95rem;
 }
 .hubspot-button:hover {
   background: var(--hopkins-gold);
   color: black;
 }
 
-/* --- Footer --- */
+/* Footer */
 .footer {
   background: var(--hopkins-blue);
   color: white;
-  padding: 1.5rem 1rem;
-  font-size: 0.9rem;
+  padding: 1rem;
+  font-size: 0.85rem;
 }
