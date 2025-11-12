@@ -204,3 +204,69 @@ p {
   text-align: right;
   flex: 0 0 40%;
 }
+
+/* Container that manages the two main columns */
+.hierarchical-layout-container {
+    display: flex;
+    gap: 40px; /* Space between the PI column and the Team column */
+    /* margin-top: 30px; */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Styling for the column titles (e.g., "Principal Investigator") */
+.column-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* 1. PI Column (Left Side - Fixed width) */
+.pi-column {
+    flex-basis: 300px; /* Gives the PI a fixed width column */
+    flex-shrink: 0; 
+}
+
+/* Ensure the PI card styling within its column */
+.pi-column .person-card {
+    margin: 0; /* Remove horizontal margin for clean alignment */
+}
+
+/* 2. Team Column (Right Side - Takes remaining space) */
+.team-column {
+    flex-grow: 1; /* Takes up all available horizontal space */
+    
+}
+
+/* The standard grid (people-grid) now operates inside the team column */
+.team-column .people-grid {
+    display: grid;
+    /* This will fit up to 3 cards in the remaining space of the column */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    text-align: center; /* Center the cards within the column */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .hierarchical-layout-container {
+        /* Stacks the PI and Team columns vertically on smaller screens */
+        flex-direction: column; 
+    }
+    
+    .pi-column {
+        /* Allows PI column to take full width when stacked */
+        flex-basis: auto; 
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee; /* Separator when stacked */
+    }
+    
+    .team-column .people-grid {
+        /* Allows 2 cards per row on smaller mobile views */
+        
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

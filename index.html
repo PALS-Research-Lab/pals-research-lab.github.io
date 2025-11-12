@@ -44,25 +44,57 @@ description: Advancing theory and practice in AI for Psychiatry
 <section id="people" class="section people-section">
 <div class="container">
 <h2>Our Team</h2>
-<div id="team-grid-container" class="people-grid single-team-grid">
-{% assign sorted_people = site.people | sort: "rank" %}
-{% assign ranked_groups = sorted_people | group_by: "rank" %}
-{% for rank_group in ranked_groups %}
-        {% assign randomized_group = rank_group.items | shuffle %}
-        {% for person in randomized_group %}
-          <div class="person-card team-member-card">
-            {% if person.photo and person.photo != empty %}
-                  <img src="/images/people/{{ person.photo }}" alt="Photo of {{ person.name }}" class="person-photo"/>
-                {% endif %}
-      
-          <h3>{{ person.name }}</h3>
-            <p class="person-role">{{ person.role }}</p>
-          </div>
-        {% endfor %}
+<div class="hierarchical-layout-container">
+{% assign pi_person = nil %}
+{% assign other_people_list = "" | split: ',' %}
 
-    {% endfor %}
-</div>
-</div>
+{% for person in site.people %}
+    {% if person.role == "PI" %}
+        {% assign pi_person = person %}
+    {% else %}
+        {% assign other_people_list = other_people_list | push: person %}
+    {% endif %}
+{% endfor %}
+
+
+<div class="pi-column">
+                    <h6 class="column-title">Principal Investigator</h6>
+                    {% if pi_person %}
+                      <div class="person-card team-member-card pi-card">
+                        {% comment %} Conditionally display PI image {% endcomment %}
+                        {% if pi_person.photo and pi_person.photo != empty %}
+                            <img src="/images/people/{{ pi_person.photo }}" alt="Photo of {{ pi_person.name }}" class="person-photo"/>
+                        {% endif %}
+                        <a href="https://ananyajoshi.com/" target="_blank" rel="noopener noreferrer"><h3>{{ pi_person.name }}</h3></a>
+                        <p class="person-role">{{ pi_person.role }}</p>
+                      </div>
+                    {% else %}
+                        <p>PI information coming soon.</p>
+                    {% endif %}
+                </div> 
+  
+
+<div class="team-column">
+                    <h6 class="column-title">Students & Collaborators</h6>
+                    <!-- This ID allows for client-side JavaScript shuffling -->
+                    <div id="team-grid-container" class="people-grid single-team-grid">
+                        {% comment %} Shuffle the rest of the team {% endcomment %}
+                        {% assign other_people_shuffled = other_people_list | shuffle %}
+                        
+                        {% for person in other_people_shuffled %}
+                          <div class="person-card team-member-card">
+                            {% comment %} Conditionally display team member image {% endcomment %}
+                            {% if person.photo and person.photo != empty %}
+                                <img src="/images/people/{{ person.photo }}" alt="Photo of {{ person.name }}" class="person-photo"/>
+                            {% endif %}
+                            <h3>{{ person.name }}</h3>
+                            <p class="person-role">{{ person.role }}</p>
+                          </div>
+                        {% endfor %}
+                    </div>
+                </div> 
+
+              </div>
 </section>
 
 <section id="news" class="section news-section">
@@ -79,7 +111,7 @@ description: Advancing theory and practice in AI for Psychiatry
       <b><a href="{{ post.url }}">{{ post.title }}</b></a></br><p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
     </div>
   </div>
-
+</div>
       </article>
       {% endfor %}
     </div>
