@@ -1,6 +1,6 @@
 ---
 name: Shevya Panda
 role: Research Student
-photo: shevya.jpg
+photo: shevya2.png
 rank: 2
 ---
