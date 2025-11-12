@@ -1,98 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PALS Research Lab</title>
-  <meta name="description" content="PALS Research Lab - Advancing research and innovation"/>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <h1 class="lab-title">PALS Research Lab</h1>
-      <p class="tagline">Advancing theory and practice in AI for Psychiatry</p>
+---
+layout: default
+title: PALS Research Lab
+description: Advancing theory and practice in AI for Psychiatry
+---
+
+
+
+<!-- Mission Section -->
+<section id="mission" class="section mission-section">
+  <div class="container">
+    <h2>Our Mission</h2>
+    <p>We conduct research at the frontiers of psychiatry and computer science.</p>
+    <p>Our work supports functional AI systems in psychiatry for improved patient care.</p>
+    <p>We also develop better ML/AI methods and techniques through the unique lens and setting of clinical psychiatry.</p>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section projects-section">
+  <div class="container">
+    <h2>Research Areas</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Statistical Monitoring and Measurement</h3>
+        <p>Developing new metrics, measurements, and methods to monitor for critical events related to psychiatry and mood disorders towards improved patient care.</p>
+      </div>
+      <div class="project-card">
+        <h3>AI Systems and Agents for Psychiatry</h3>
+        <p>Developing the theory and building multi-agent systems related to improving clinical processes for patients, clinicians, and hospitals.</p>
+      </div>
+      <div class="project-card">
+        <h3>Evaluation and Experimental Design</h3>
+        <p>Strategies to evaluate and test GenAI tools in psychiatry and behavioral science.</p>
+      </div>
     </div>
-  </header>
+  </div>
+    <p>Our work is inspired by the mission of Johns Hopkins Medicine to "improve the health of the community and the world by setting the standard of excellence in medical education, research and clinical care."</p>
+</section>
+
+<main class="main">
 
 
-  <!-- Main -->
-  <main class="main">
-
-    <!-- Mission Section -->
-    <section id="mission" class="section mission-section">
-      <div class="container">
-        <h2>Our Mission</h2>
-        <p>We conduct research at the frontiers of psychiatry and computer science.</p>
-        <p>Our work supports functional AI systems in psychiatry for improved patient care.</p>
-        <p>We also develop better ML/AI methods and techniques through the unique lens and setting of clinical psychiatry.</p>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-      <div class="container">
-        <h2>Research Areas</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Statistical Monitoring and Measurement</h3>
-            <p>Developing new metrics, measurements, and methods to monitor for critical events related to psychiatry and mood disorders towards improved patient care.</p>
+<section id="people" class="section people-section">
+<div class="container">
+<h2>Our Team</h2>
+<div id="team-grid-container" class="people-grid single-team-grid">
+{% assign sorted_people = site.people | sort: "rank" %}
+{% assign ranked_groups = sorted_people | group_by: "rank" %}
+{% for rank_group in ranked_groups %}
+        {% assign randomized_group = rank_group.items | shuffle %}
+        {% for person in randomized_group %}
+          <div class="person-card team-member-card">
+            {% if person.photo and person.photo != empty %}
+                  <img src="/images/people/{{ person.photo }}" alt="Photo of {{ person.name }}" class="person-photo"/>
+                {% endif %}
+      
+          <h3>{{ person.name }}</h3>
+            <p class="person-role">{{ person.role }}</p>
           </div>
-          <div class="project-card">
-            <h3>AI Systems and Agents for Psychiatry</h3>
-            <p>Developing the theory and building multi-agent systems related to improving clinical processes for patients, clinicians, and hospitals.</p>
-          </div>
-          <div class="project-card">
-            <h3>Evaluation and Experimental Design</h3>
-            <p>Strategies to evaluate and test GenAI tools in psychiatry and behavioral science.</p>
-          </div>
-        </div>
-      </div>
-       <p>Our work is inspired by the mission of Johns Hopkins Medicine to "improve the health of the community and the world by setting the standard of excellence in medical education, research and clinical care."</p>
-    </section>
+        {% endfor %}
 
-    <!-- Join Us Section -->
-    <section id="join" class="section join-section">
-      <div class="container">
-        <h2>Join Our Lab</h2>
-        <p>We are always looking for students and collaborators. We are just getting started and would love to hear from you if you're interested in future positions.</p>
-        <div class="hubspot-section">
-          <h3>Apply Now</h3>
-          <p>We are currently inviting applications for a Postdoctoral Researcher position!</p>
-          <a href="https://413984.share-na2.hsforms.com/2wWWQjh12S5KE8aRk3w_m6g"
-             class="hubspot-button" target="_blank">
-             Apply for Postdoc Position
-          </a>
-          <p>Stay in touch:</p>
-          <a href="https://413984.share-na2.hsforms.com/2Ho2oxnfTTPORPAsVB4FfRQ"
-             class="hubspot-button" target="_blank">
-             Contact Form
-          </a>
-        </div>
-      </div>
-    </section>
- 
-  </main>
+    {% endfor %}
+</div>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 PALS Research Lab. All rights reserved.</p>
+<section id="news" class="section news-section">
+  <div class="container">
+    <h2>News & Updates</h2>
+    <div class="updates-list">
+      {% for post in site.posts limit: 3 %}
+      <article class="update-item">
+        <div class="row">
+    <div class="col update-date right">
+      <p>{{ post.date | date: "%b %d, %Y" }} </p> 
     </div>
-  </footer>
+    <div class="col update-content left">
+      <b><a href="{{ post.url }}">{{ post.title }}</b></a></br><p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    </div>
+  </div>
 
-  <!-- Smooth scroll -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+      <!-- Join Us Section -->
+<section id="join" class="section join-section">
+  <div class="container">
+    <h2>Join Our Lab</h2>
+    <p>We are always looking for students and collaborators. We are just getting started and would love to hear from you if you're interested in future positions.</p>
+    <div class="hubspot-section">
+      <h3>Apply Now</h3>
+      <a href="https://413984.share-na2.hsforms.com/2wWWQjh12S5KE8aRk3w_m6g"
+          class="hubspot-button inactive" target="_blank">
+          Apply for Postdoc or Student Position
+      </a>
+      <p>Stay in touch:</p>
+      <a href="https://413984.share-na2.hsforms.com/2Ho2oxnfTTPORPAsVB4FfRQ"
+          class="hubspot-button" target="_blank">
+          Contact Form
+      </a>
+    </div>
+  </div>
+</section>
+</main>

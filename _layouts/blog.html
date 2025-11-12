@@ -1,0 +1,39 @@
+---
+layout: default
+title: Lab News & Updates
+description: The latest news, publications, and presentations from the PALS Research Lab.
+---
+
+<div class="container archive-container">
+    <h2>{{ page.title }}</h2>
+    
+    <div class="post-list">
+        {% for post in site.posts %}
+            <article class="archive-item">
+                <header>
+                    <h3>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="post-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%b %d, %Y" }}
+                        </time>
+                    </p>
+                </header>
+                
+                <div class="post-summary">
+                    {% if post.excerpt %}
+                        {{ post.excerpt | strip_html | truncatewords: 30 }}
+                    {% else %}
+                        {{ post.content | strip_html | truncatewords: 30 }}
+                    {% endif %}
+                    <a href="{{ post.url }}" class="read-more">Read More &raquo;</a>
+                </div>
+            </article>
+            
+            {% unless forloop.last %}
+                <hr class="post-divider">
+            {% endunless %}
+        {% endfor %}
+    </div>
+</div>

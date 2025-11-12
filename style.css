@@ -83,10 +83,124 @@ p {
   color: black;
 }
 
+/* Applies the grayscale filter only to team photos */
+.person-photo {
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    margin-bottom: 15px;
+ 
+    filter: grayscale(100%);
+    /* THE KEY PROPERTY FOR CIRCLES */
+    border-radius: 50%; 
+}
+/* Ensure the parent container uses CSS Grid */
+.people-grid {
+    display: grid;
+    /* Adjust the minimum width (e.g., 180px) to ensure 5 cards can fit side-by-side */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+/* Optional: Styles for the cards themselves */
+.person-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+
 /* Footer */
 .footer {
   background: var(--hopkins-blue);
   color: white;
   padding: 1rem;
   font-size: 0.85rem;
+}
+
+/* Scoped to the specific blog/news archive section only */
+
+/* 1. Container for the entire post entry */
+.blog-archive-section .post-row {
+    display: flex;
+    padding: 15px 30px; /* Space on the left/right sides of the entire row */
+    align-items: flex-start;
+}
+
+/* 2. Lateral Date Column Styling (Fixed left side) */
+.blog-archive-section .post-date-column {
+    flex-basis: 120px; 
+    flex-shrink: 0; 
+    
+    font-weight: bold;
+    color: #6c757d; 
+    font-size: 0.9em;
+    
+    /* Reduced margin-right to bring the date column closer to the content */
+    padding-right: 10px; 
+    margin-right: 10px; 
+    
+    border-right: 1px solid #ddd; 
+    text-align: left;
+    
+    /* Ensure date text aligns vertically with the top of the content */
+    padding-top: 5px; /* Add small top padding to align vertically with title */
+}
+
+/* 3. Content Column Styling (Right side: Title and Description) */
+.blog-archive-section .post-content-column {
+    flex-grow: 1; /* Takes all remaining width */
+    /* text-align: center; <-- AVOIDING THIS as it makes all text look strange */
+    /* Instead, we ensure the title/description block is cohesive */
+}
+
+/* 4. Title and Preview Styles */
+.blog-archive-section .update-title {
+    font-size: 1.3em;
+    margin-top: 0; /* Ensures the title sits right at the top of the content column */
+    margin-bottom: 5px; 
+}
+
+.blog-archive-section .update-title a {
+    font-weight: bold; 
+    text-decoration: none; 
+    text-align: left; /* Keep text left-aligned for readability */
+}
+
+/* Ensure the description preview takes the necessary space and wraps */
+.blog-archive-section .update-preview p {
+    line-height: 1.4; /* Improves readability for multi-line text */
+    margin-top: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: center;  /* centers horizontally */
+  align-items: center;      /* centers vertically (optional) */
+  gap: 1rem;
+  margin: 0 auto;           /* centers the row itself within its parent */
+  max-width: 1000px;        /* optional: keeps it from stretching too wide */
+}
+
+.col {
+  flex: 1;
+  padding: 10px;
+  text-align: center;       /* centers text inside each column */
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column; /* stacks columns on mobile */
+  }
+}
+
+.col.left {
+  text-align: left;
+   flex: 0 0 60%; 
+}
+.col.right {
+  text-align: right;
+  flex: 0 0 40%;
 }

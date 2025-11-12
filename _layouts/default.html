@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}"/>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<!--   
+  <nav class="main-nav">
+    <div class="container">
+      <a href="/#mission">Mission</a>
+      <a href="/#people">Team</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#news">News</a>
+      <a href="/projects-archive">All Projects</a>
+      <a href="/blog">Blog Archive</a>
+      <a href="/#join">Join Us</a>
+    </div>
+  </nav> -->
+<header class="header">
+  <a href="/index.html" style="text-decoration: none; color: inherit;">
+<div class="container">
+  <h1 class="lab-title">PALS Research Lab</h1>
+  <p class="tagline">Advancing theory and practice in AI for Psychiatry</p>
+</div>
+</a>
+</header>
+  {{ content }}
+
+<footer class="footer">
+<div class="container">
+<p>&copy; {% assign year = 'now' | date: '%Y' %}{{ year }} {{ site.title }}. All rights reserved.</p>
+</div>
+</footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('team-grid-container');
+        
+        if (!container) return;
+
+        // Use the class defined in the Liquid template
+        const cardsNodeList = container.querySelectorAll('.team-member-card');
+        
+        let cards = Array.from(cardsNodeList);
+
+        if (cards.length < 2) return;
+
+        // PI is guaranteed to be the first card due to Liquid's sort: "rank"
+        const piCard = cards[0];
+        let teamCardsToShuffle = cards.slice(1); // Rest of the team
+
+        // Fisher-Yates shuffle algorithm
+        for (let i = teamCardsToShuffle.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [teamCardsToShuffle[i], teamCardsToShuffle[j]] = [teamCardsToShuffle[j], teamCardsToShuffle[i]];
+        }
+
+        // Clear the container to re-append elements
+        container.innerHTML = ''; 
+        
+        // Append the PI card first (keeps them at rank 1)
+        container.appendChild(piCard); 
+        
+        // Append the randomized team cards
+        teamCardsToShuffle.forEach(card => {
+            container.appendChild(card); 
+        });
+    });
+</script>
+
+
+</body>
+</html>

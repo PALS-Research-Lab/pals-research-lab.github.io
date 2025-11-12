@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<main class="post-page-main">
+    <div class="container post-container">
+        
+        <article class="post-content">
+            
+            <header class="post-header">
+                <!-- Title -->
+        
+                
+                <!-- Metadata -->
+                <p class="post-meta">
+                    Published on 
+                    <time datetime="{{ page.date | date_to_xmlschema }}">
+                        {{ page.date | date: "%B %d, %Y" }} | <b>{{ page.title }}</b>
+                    </time>
+                    {% if page.author %}
+                        &bull; By <span class="post-author">{{ page.author }}</span>
+                    {% endif %}
+                    <!-- {% if page.categories %}
+                        &bull; Filed in 
+                        {% for category in page.categories %}
+                            <a href="/categories/#{{ category | slugify }}" class="post-category">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    {% endif %} -->
+                </p>
+                <hr class="header-divider">
+            </header>
+
+            <!-- Main Content Area: Where the Markdown body goes -->
+            <div class="post-body">
+                {{ content }}
+            </div>
+
+            <footer class="post-footer">
+                <nav class="post-pagination">
+                    <!-- Link to Previous Post -->
+                    {% if page.previous %}
+                        <a href="{{ page.previous.url }}" class="previous-post-link">
+                            &larr; Previous: {{ page.previous.title }}
+                        </a>
+                    {% endif %}
+                    
+                    <!-- Link to Next Post -->
+                    {% if page.next %}
+                        <a href="{{ page.next.url }}" class="next-post-link">
+                            Next: {{ page.next.title }} &rarr;
+                        </a>
+                    {% endif %}
+                </nav>
+                <p class="back-to-archive-link">
+                    <a href="/blog.html">← Back to Archive</a>
+                </p>
+            </footer>
+        </article>
+
+    </div>
+</main>

@@ -1,0 +1,32 @@
+title: PALS Research Lab
+# email: your-email@example.com
+description: Advancing theory and practice in AI for Psychiatry
+
+
+# COLLECTION CONFIGURATION
+collections:
+  people:
+    output: false # Changed to 'false' to keep the people list only on the index page
+    permalink: /team/:name/
+
+# CUSTOM RELATIVE LINKS CONFIG (If still needed)
+relative_links:
+  enabled: true
+  collections: true
+
+# MARKDOWN SETTINGS
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+  
+# FILES TO INCLUDE IN BUILD
+include:
+  - CONTRIBUTING.md
+  - README.md
+  - LICENSE.md
+  - COPYING.md
+  - CODE_OF_CONDUCT.md
+  - ISSUE_TEMPLATE.md
+  - PULL_REQUEST_TEMPLATE.md
