@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <main class="post-page-main">
     <div class="container post-container">
         
@@ -30,8 +31,8 @@ layout: default
             </header>
 
             <!-- Main Content Area: Where the Markdown body goes -->
-            <div class="post-body">
-                {{ content }}
+            <div class="post-body markdown-content">
+                {{ content | safe }}
             </div>
 
             <footer class="post-footer">
