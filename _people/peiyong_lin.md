@@ -1,6 +1,6 @@
 ---
-name: Jay Pratap
+name: Peiyong Lin
 role: Research Student
-photo: jay.png
+photo: peiyong.jpg
 rank: 2
 ---

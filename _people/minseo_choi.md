@@ -1,6 +1,6 @@
 ---
-name: Jay Pratap
+name: Minseo Choi
 role: Research Student
-photo: jay.png
+photo: 
 rank: 2
 ---

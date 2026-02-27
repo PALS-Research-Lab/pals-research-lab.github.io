@@ -1,6 +1,6 @@
 ---
-name: Jay Pratap
+name: Jiayi Zhang
 role: Research Student
-photo: jay.png
+photo: jiayi.jpg
 rank: 2
 ---

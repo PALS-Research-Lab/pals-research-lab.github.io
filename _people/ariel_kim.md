@@ -1,6 +1,6 @@
 ---
-name: Jay Pratap
+name: Ariel Kim
 role: Research Student
-photo: jay.png
+photo: ariel.jpg
 rank: 2
 ---

@@ -1,6 +1,6 @@
 ---
-name: Jay Pratap
+name: Elliott Leow
 role: Research Student
-photo: jay.png
+photo: elliott.jpg
 rank: 2
 ---
