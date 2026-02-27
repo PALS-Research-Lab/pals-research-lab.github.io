@@ -1,6 +1,6 @@
 ---
 name: Ariel Kim
 role: Research Student
-photo: ariel.jpg
+photo: Ariel.JPG
 rank: 2
 ---

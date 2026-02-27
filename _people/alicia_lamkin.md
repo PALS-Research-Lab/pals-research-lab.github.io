@@ -1,6 +1,6 @@
 ---
-name: Rhea Makkuni
+name: Alicia Lamkin
 role: Research Student
-photo: rhea.jpeg
+photo: 
 rank: 2
 ---
