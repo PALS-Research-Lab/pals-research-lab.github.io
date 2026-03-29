@@ -21,11 +21,11 @@ description: Advancing theory and practice in AI for Psychiatry
   <div class="container">
     <h2>News & Updates</h2>
     <div class="updates-list">
-      {% for post in site.posts%}
+      {% for post in site.posts limit:4 %}
       <article class="update-item">
         <div class="row">
     <div class="col update-date right">
-      <p>{{ post.date | date: "%b %d, %Y" }} </p> 
+      <p>{{ post.date | date: "%b %d, %Y" }} </p>
     </div>
     <div class="col update-content left">
       <b><a href="{{ post.url }}">{{ post.title }}</b></a></br><p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
@@ -34,6 +34,9 @@ description: Advancing theory and practice in AI for Psychiatry
 </div>
       </article>
       {% endfor %}
+    </div>
+    <div class="container" style="text-align: center; margin-top: 1rem;">
+      <a href="/blog">View all news &rarr;</a>
     </div>
   </div>
 </section>
