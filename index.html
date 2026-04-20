@@ -73,10 +73,13 @@ description: Advancing theory and practice in AI for Psychiatry
 <div class="hierarchical-layout-container">
 {% assign pi_person = nil %}
 {% assign other_people_list = "" | split: ',' %}
+{% assign alumni_list = "" | split: ',' %}
 
 {% for person in site.people %}
     {% if person.role == "PI" %}
         {% assign pi_person = person %}
+    {% elsif person.tier == "alumni" %}
+        {% assign alumni_list = alumni_list | push: person %}
     {% else %}
         {% assign other_people_list = other_people_list | push: person %}
     {% endif %}
@@ -123,6 +126,19 @@ description: Advancing theory and practice in AI for Psychiatry
               </div>
 </section>
 
+<section id="alumni" class="section people-section">
+<div class="container">
+<h2>Alumni &amp; Friends</h2>
+<div class="people-grid single-team-grid">
+    {% for person in alumni_list %}
+      <div class="person-card team-member-card">
+        <h3>{{ person.name }}</h3>
+        <p class="person-role">{{ person.role }}</p>
+      </div>
+    {% endfor %}
+</div>
+</div>
+</section>
 
 
       <!-- Join Us Section -->

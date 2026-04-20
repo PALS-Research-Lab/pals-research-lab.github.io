@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PALS — OG / LinkedIn Preview Candidates</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #111;
+      font-family: -apple-system, 'Inter', sans-serif;
+      color: #fff;
+      padding: 3rem 2rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 3.5rem;
+    }
+    .candidate {
+      max-width: 760px;
+      margin: 0 auto 5rem;
+    }
+    .candidate-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFD100;
+      margin-bottom: 0.6rem;
+    }
+    .candidate-desc {
+      font-size: 0.82rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+    .preview-wrap {
+      width: 100%;
+      aspect-ratio: 1200 / 630;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    }
+    .preview-wrap svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    hr.divider {
+      border: none;
+      border-top: 1px solid #222;
+      max-width: 760px;
+      margin: 0 auto 5rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>OG / LinkedIn Preview — Candidates</h1>
+
+
+<!-- ── CANDIDATE 1: ULTRA MINIMAL TYPOGRAPHIC ── -->
+<div class="candidate">
+  <div class="candidate-label">A — Ultra Minimal</div>
+  <div class="candidate-desc">Pure typography. No decoration — all weight comes from size and spacing. The gold is an accent only.</div>
+  <div class="preview-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+      <defs>
+        <linearGradient id="a-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#001f5b"/>
+          <stop offset="100%" stop-color="#000d2e"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="630" fill="url(#a-bg)"/>
+
+      <!-- Left gold bar, thicker -->
+      <rect x="90" y="0" width="9" height="630" fill="#FFD100"/>
+
+      <!-- PALS — massive -->
+      <text x="132" y="330"
+        font-family="Arial Black, Arial, Helvetica, sans-serif"
+        font-weight="900"
+        font-size="220"
+        fill="white"
+        letter-spacing="-6">PALS</text>
+
+      <!-- Research Lab -->
+      <text x="138" y="408"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="56"
+        fill="#FFD100"
+        letter-spacing="10">RESEARCH LAB</text>
+
+      <!-- Tagline -->
+      <text x="140" y="465"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="400"
+        font-size="26"
+        fill="rgba(255,255,255,0.45)"
+        letter-spacing="1">Advancing theory and practice in AI for Psychiatry</text>
+
+      <!-- Institution -->
+      <text x="140" y="560"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="400"
+        font-size="22"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="3">JOHNS HOPKINS UNIVERSITY</text>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+
+<!-- ── CANDIDATE 2: BOLD SPLIT ── -->
+<div class="candidate">
+  <div class="candidate-label">B — Bold Split</div>
+  <div class="candidate-desc">Hard diagonal split between deep navy and near-black. The "P" is oversized as a visual anchor on the right side.</div>
+  <div class="preview-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+      <defs>
+        <clipPath id="b-left-clip">
+          <polygon points="0,0 750,0 680,630 0,630"/>
+        </clipPath>
+        <clipPath id="b-right-clip">
+          <polygon points="750,0 1200,0 1200,630 680,630"/>
+        </clipPath>
+      </defs>
+
+      <!-- Left panel -->
+      <rect width="1200" height="630" fill="#050d1f"/>
+      <rect width="1200" height="630" fill="#002D72" clip-path="url(#b-left-clip)"/>
+
+      <!-- Diagonal edge accent -->
+      <line x1="750" y1="0" x2="680" y2="630" stroke="#FFD100" stroke-width="4"/>
+
+      <!-- PALS text left -->
+      <text x="80" y="340"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="190"
+        fill="white"
+        letter-spacing="-4">PALS</text>
+
+      <!-- Research Lab -->
+      <text x="84" y="405"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="44"
+        fill="#FFD100"
+        letter-spacing="8">RESEARCH LAB</text>
+
+      <!-- Horizontal line -->
+      <line x1="84" y1="428" x2="600" y2="428" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+
+      <!-- Tagline -->
+      <text x="84" y="466"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24"
+        fill="rgba(255,255,255,0.45)"
+        letter-spacing="0.5">AI for Psychiatry · Johns Hopkins University</text>
+
+      <!-- Big "P" watermark right side -->
+      <text x="790" y="560"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="520"
+        fill="rgba(255,255,255,0.04)"
+        letter-spacing="0">P</text>
+
+      <!-- Gold dot accent right -->
+      <circle cx="1050" cy="160" r="18" fill="#FFD100" opacity="0.7"/>
+      <circle cx="1050" cy="160" r="42" fill="none" stroke="#FFD100" stroke-width="3" opacity="0.25"/>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+
+<!-- ── CANDIDATE 3: BOLD NETWORK ── -->
+<div class="candidate">
+  <div class="candidate-label">C — Bold Network</div>
+  <div class="candidate-desc">5 large nodes with thick connecting lines — a simplified neural network. All lines are 3× thicker than the current design.</div>
+  <div class="preview-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+      <defs>
+        <linearGradient id="c-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#002060"/>
+          <stop offset="100%" stop-color="#000f3a"/>
+        </linearGradient>
+        <radialGradient id="c-glow" cx="75%" cy="50%" r="45%">
+          <stop offset="0%" stop-color="#FFD100" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#FFD100" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="630" fill="url(#c-bg)"/>
+      <rect width="1200" height="630" fill="url(#c-glow)"/>
+
+      <!-- Network — right side, bold & sparse -->
+      <!-- node positions: A(800,160) B(980,230) C(860,370) D(1040,400) E(940,530) -->
+      <!-- Connections — thick -->
+      <line x1="800" y1="160" x2="980" y2="230" stroke="#FFD100" stroke-width="3.5" opacity="0.55"/>
+      <line x1="980" y1="230" x2="860" y2="370" stroke="#FFD100" stroke-width="3.5" opacity="0.55"/>
+      <line x1="980" y1="230" x2="1040" y2="400" stroke="#FFD100" stroke-width="3.5" opacity="0.4"/>
+      <line x1="860" y1="370" x2="940" y2="530" stroke="#FFD100" stroke-width="3.5" opacity="0.55"/>
+      <line x1="1040" y1="400" x2="940" y2="530" stroke="#FFD100" stroke-width="3.5" opacity="0.4"/>
+      <line x1="800" y1="160" x2="860" y2="370" stroke="#FFD100" stroke-width="2" opacity="0.2"/>
+
+      <!-- Nodes — large -->
+      <circle cx="800" cy="160" r="18" fill="#FFD100" opacity="0.9"/>
+      <circle cx="980" cy="230" r="14" fill="#FFD100" opacity="0.75"/>
+      <circle cx="860" cy="370" r="22" fill="#FFD100" opacity="0.9"/>
+      <circle cx="1040" cy="400" r="12" fill="#FFD100" opacity="0.6"/>
+      <circle cx="940" cy="530" r="16" fill="#FFD100" opacity="0.8"/>
+
+      <!-- Node rings -->
+      <circle cx="860" cy="370" r="38" fill="none" stroke="#FFD100" stroke-width="2.5" opacity="0.2"/>
+
+      <!-- Left gold bar -->
+      <rect x="90" y="0" width="8" height="630" fill="#FFD100"/>
+
+      <!-- PALS -->
+      <text x="132" y="305"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="185"
+        fill="white"
+        letter-spacing="-4">PALS</text>
+
+      <!-- Research Lab -->
+      <text x="138" y="375"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="48"
+        fill="#FFD100"
+        letter-spacing="8">RESEARCH LAB</text>
+
+      <!-- Tagline -->
+      <text x="140" y="430"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24"
+        fill="rgba(255,255,255,0.45)"
+        letter-spacing="0.5">Advancing theory and practice in AI for Psychiatry</text>
+
+      <!-- Divider -->
+      <line x1="140" y1="450" x2="650" y2="450" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+      <!-- Institution -->
+      <text x="140" y="556"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="2.5">JOHNS HOPKINS UNIVERSITY</text>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+
+<!-- ── CANDIDATE 4: GOLD ACCENT BLOCK ── -->
+<div class="candidate">
+  <div class="candidate-label">D — Gold Accent Block</div>
+  <div class="candidate-desc">The "PALS" sits inside a large gold rectangle — inverted colors. The rest of the card is navy. Very bold and immediate.</div>
+  <div class="preview-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+      <defs>
+        <linearGradient id="d-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#001844"/>
+          <stop offset="100%" stop-color="#000c2a"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="630" fill="url(#d-bg)"/>
+
+      <!-- Gold block behind PALS -->
+      <rect x="80" y="120" width="640" height="240" rx="8" fill="#FFD100"/>
+
+      <!-- PALS inverted on gold -->
+      <text x="104" y="326"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="195"
+        fill="#001844"
+        letter-spacing="-2">PALS</text>
+
+      <!-- Research Lab below gold block -->
+      <text x="84" y="430"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="48"
+        fill="white"
+        letter-spacing="8">RESEARCH LAB</text>
+
+      <!-- Tagline -->
+      <text x="84" y="485"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24"
+        fill="rgba(255,255,255,0.45)"
+        letter-spacing="0.5">Advancing theory and practice in AI for Psychiatry</text>
+
+      <!-- Divider -->
+      <line x1="84" y1="510" x2="580" y2="510" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+      <!-- Institution -->
+      <text x="84" y="558"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="2.5">JOHNS HOPKINS UNIVERSITY</text>
+
+      <!-- Right side: large bold "P" in gold, barely visible -->
+      <text x="780" y="560"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="500"
+        fill="rgba(255,209,0,0.06)">P</text>
+
+      <!-- Corner dot -->
+      <circle cx="1100" cy="120" r="8" fill="#FFD100" opacity="0.6"/>
+      <circle cx="1140" cy="160" r="5" fill="#FFD100" opacity="0.4"/>
+      <circle cx="1075" cy="165" r="4" fill="#FFD100" opacity="0.3"/>
+      <line x1="1100" y1="120" x2="1140" y2="160" stroke="#FFD100" stroke-width="2" opacity="0.3"/>
+      <line x1="1100" y1="120" x2="1075" y2="165" stroke="#FFD100" stroke-width="2" opacity="0.25"/>
+      <line x1="1140" y1="160" x2="1075" y2="165" stroke="#FFD100" stroke-width="2" opacity="0.2"/>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+
+<!-- ── CANDIDATE 5: DARK GRADIENT + GLOWING RING ── -->
+<div class="candidate">
+  <div class="candidate-label">E — Dark Gradient + Ring</div>
+  <div class="candidate-desc">Near-black background with a soft gold radial glow. A single bold ring on the right acts as the visual motif — simple, premium, modern.</div>
+  <div class="preview-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+      <defs>
+        <radialGradient id="e-glow" cx="80%" cy="50%" r="40%">
+          <stop offset="0%" stop-color="#FFD100" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#FFD100" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="e-bg" cx="30%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#001f5b"/>
+          <stop offset="100%" stop-color="#00091f"/>
+        </radialGradient>
+      </defs>
+
+      <rect width="1200" height="630" fill="url(#e-bg)"/>
+      <rect width="1200" height="630" fill="url(#e-glow)"/>
+
+      <!-- Bold concentric rings right side -->
+      <circle cx="1000" cy="315" r="200" fill="none" stroke="#FFD100" stroke-width="5" opacity="0.18"/>
+      <circle cx="1000" cy="315" r="150" fill="none" stroke="#FFD100" stroke-width="4" opacity="0.28"/>
+      <circle cx="1000" cy="315" r="90"  fill="none" stroke="#FFD100" stroke-width="4" opacity="0.45"/>
+      <circle cx="1000" cy="315" r="22"  fill="#FFD100" opacity="0.85"/>
+
+      <!-- Spokes from center dot (only 4 — simple) -->
+      <line x1="1000" y1="315" x2="1000" y2="125" stroke="#FFD100" stroke-width="2.5" opacity="0.2"/>
+      <line x1="1000" y1="315" x2="1190" y2="315" stroke="#FFD100" stroke-width="2.5" opacity="0.2"/>
+      <line x1="1000" y1="315" x2="1000" y2="505" stroke="#FFD100" stroke-width="2.5" opacity="0.2"/>
+      <line x1="1000" y1="315" x2="810"  y2="315" stroke="#FFD100" stroke-width="2.5" opacity="0.2"/>
+
+      <!-- Left gold bar -->
+      <rect x="90" y="0" width="9" height="630" fill="#FFD100"/>
+
+      <!-- PALS -->
+      <text x="132" y="310"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="188"
+        fill="white"
+        letter-spacing="-4">PALS</text>
+
+      <!-- Research Lab -->
+      <text x="138" y="378"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="48"
+        fill="#FFD100"
+        letter-spacing="9">RESEARCH LAB</text>
+
+      <!-- Divider -->
+      <line x1="140" y1="404" x2="620" y2="404" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+      <!-- Tagline -->
+      <text x="140" y="444"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="25"
+        fill="rgba(255,255,255,0.42)"
+        letter-spacing="0.4">Advancing theory and practice in AI for Psychiatry</text>
+
+      <!-- Institution -->
+      <text x="140" y="560"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        fill="rgba(255,255,255,0.28)"
+        letter-spacing="2.8">JOHNS HOPKINS UNIVERSITY</text>
+    </svg>
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -2,6 +2,6 @@
 name: Derek Barisas
 role: Resident Affiliate
 photo: 
-tier: staff 
+tier: alumni
 rank: 2
 ---
