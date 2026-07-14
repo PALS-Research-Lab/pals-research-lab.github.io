@@ -74,12 +74,15 @@ description: Advancing theory and practice in AI for Psychiatry
 {% assign pi_person = nil %}
 {% assign other_people_list = "" | split: ',' %}
 {% assign alumni_list = "" | split: ',' %}
+{% assign postdoc_list = "" | split: ',' %}
 
 {% for person in site.people %}
     {% if person.role == "PI" %}
         {% assign pi_person = person %}
     {% elsif person.tier == "alumni" %}
         {% assign alumni_list = alumni_list | push: person %}
+  {% elsif person.tier == "postdoc" %}
+        {% assign postdoc_list = postdoc_list | push: person %}
     {% else %}
         {% assign other_people_list = other_people_list | push: person %}
     {% endif %}
@@ -90,7 +93,6 @@ description: Advancing theory and practice in AI for Psychiatry
                     <h6 class="column-title">Principal Investigator</h6>
                     {% if pi_person %}
                       <div class="person-card team-member-card pi-card">
-                        {% comment %} Conditionally display PI image {% endcomment %}
                         {% if pi_person.photo and pi_person.photo != empty %}
                             <img src="/images/people/{{ pi_person.photo }}" alt="Photo of {{ pi_person.name }}" class="person-photo"/>
                         {% endif %}
@@ -98,17 +100,26 @@ description: Advancing theory and practice in AI for Psychiatry
                         <p class="person-role">{{ pi_person.role }}</p>
                       </div>
                     {% else %}
-                        <p>PI information coming soon.</p>
+                        <p>Ananya Joshi</p>
                     {% endif %}
                 </div> 
   
 
 <div class="team-column">
-                    <h6 class="column-title">Students & Collaborators</h6>
+                    <h6 class="column-title">Postdocs, Collaborators, & Student</h6>
                     <!-- This ID allows for client-side JavaScript shuffling -->
                     <div id="team-grid-container" class="people-grid single-team-grid">
-                        {% comment %} Shuffle the rest of the team {% endcomment %}
                         {% assign other_people_shuffled = other_people_list | shuffle %}
+                        {% for person in postdoc_list %}
+                            <div class="person-card team-member-card">
+                              {% comment %} Conditionally display team member image {% endcomment %}
+                              {% if person.photo and person.photo != empty %}
+                                  <img src="/images/people/{{ person.photo }}" alt="Photo of {{ person.name }}" class="person-photo"/>
+                              {% endif %}
+                              <h3>{{ person.name }}</h3>
+                              <p class="person-role">{{ person.role }}</p>
+                            </div>
+                          {% endfor %}
                         
                         {% for person in other_people_shuffled %}
                           <div class="person-card team-member-card">
