@@ -1,5 +1,5 @@
 :root {
-  --hopkins-blue: #002D72;
+  --hopkins-blue: #12005A;
   --hopkins-gold: #FFD100;
   --light-gray: #f7f9fc;
   --dark-gray: #333;
@@ -22,7 +22,7 @@ body {
 
 /* Header */
 .header {
-  background: linear-gradient(135deg, #002D72, #0048a5);
+  background: linear-gradient(135deg, #12005A, #0048a5);
   color: white;
   padding: 2rem 1rem;
 }
@@ -170,8 +170,67 @@ a {
 .footer {
   background: var(--hopkins-blue);
   color: white;
-  padding: 1rem;
   font-size: 0.85rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.site-footer {
+  background: var(--hopkins-blue); /* Johns Hopkins-style blue */
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-container {
+  max-width: 1600px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo-card {
+    background: #ffffff;
+  padding: 0.25rem 0.25rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.footer-left {
+  justify-self: start;
+}
+
+.footer-right {
+  justify-self: end;
+}
+
+.foot-logo {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+
+.som-logo {
+  max-height: 85px;
+  max-width: 420px;
+}
+
+.pals-logo {
+  max-height: 85px;
+  max-width: 420px;
+}
+
+.footer-text {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* ── Blog archive ── */
