@@ -117,7 +117,8 @@
   <div class="footer-bar">
     <div class="container footer-bar-inner">
       <a href="https://www.hopkinsmedicine.org/" class="footer-jhu" target="_blank" rel="noopener noreferrer">
-        <img src="/images/SOM.png" alt="Johns Hopkins School of Medicine" class="footer-jhu-logo" onerror="this.style.display='none'" />
+        <img src="/images/SOM.png" alt="Johns Hopkins School of Medicine" class="footer-jhu-logo"
+             onerror="this.closest('.footer-jhu').style.display='none'" />
       </a>
       <p class="footer-copy">&copy; {% assign year = 'now' | date: '%Y' %}{{ year }} {{ site.title }}. All rights reserved.</p>
       <a href="/" class="footer-pals" aria-label="PALS Lab home">

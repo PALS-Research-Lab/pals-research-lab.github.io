@@ -1285,29 +1285,32 @@ a {
   gap: 1rem 1.5rem;
 }
 
+/* SOM.png is navy ink on a transparent canvas, so it needs a white card to be
+   legible on the dark bar. The card lives on the link, not the image: with the
+   global border-box rule, padding on the <img> was subtracted from its own
+   height, so `height: 46px` with 8px padding rendered the logo at only 30px. */
 .footer-jhu {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   justify-self: start;
-}
-
-/* SOM.png is navy ink on a transparent canvas, so it needs the white card to be
-   legible on the dark bar. It is a horizontal lockup (3.4:1), so it reads fine
-   at a smaller height than the stacked mark it replaced. */
-.footer-jhu-logo {
-  height: 46px;
-  width: auto;
-  max-width: 260px;
-  object-fit: contain;
-  display: block;
   background: #fff;
   border-radius: 6px;
-  padding: 8px 14px;
+  padding: 7px 13px;
 }
 
-.footer-jhu-logo:not([src]),
-.footer-jhu-logo[src=""] {
+.footer-jhu-logo {
+  height: 50px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hide the whole card, not just the image, so a missing logo does not leave an
+   empty white rectangle sitting on the bar. */
+.footer-jhu:has(.footer-jhu-logo:not([src])),
+.footer-jhu:has(.footer-jhu-logo[src=""]) {
   display: none;
 }
 
