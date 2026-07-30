@@ -28,18 +28,9 @@ projects:
       Detecting drift in the language of LLM responses over time, and what that
       drift implies for evaluating deployed systems.
 
-# Papers are listed newest first. `link` is an external URL (arXiv); `file`
-# points at images/papers/ and is only used when there is no `link`.
-papers:
-  - title: "Reliability Auditing for Downstream LLM Tasks in Psychiatry: LLM-Generated Hospitalization Risk Scores"
-    authors: Shevya Panda, Shinjini Bose, Ananya Joshi
-    venue: arXiv, 2026
-    link: https://arxiv.org/abs/2604.22063
-
-  - title: "Decomposing Theory of Mind: How Emotional Processing Mediates ToM Abilities in LLMs"
-    authors: Ivan Chulo, Ananya Joshi
-    venue: arXiv, 2025
-    link: https://arxiv.org/abs/2511.15895
+# Papers are NOT listed here. They live in _data/publications.yml; an entry
+# joins this page's "Selected work" by setting
+# `area: evaluation-experimental-design`.
 ---
 
 Generative AI tools are entering psychiatry and behavioral science faster than evaluation practice can keep up. We design strategies to test these systems rigorously, covering validity, reliability, fairness across populations, and fitness for clinical or research use.

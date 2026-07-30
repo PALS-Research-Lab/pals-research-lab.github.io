@@ -1,0 +1,118 @@
+# Single source of truth for lab publications.
+#
+# /publications renders every entry, grouped by `year` (newest first). Research
+# area pages render the subset whose `area` matches their page slug, so a paper
+# is only ever written down once — do NOT also add it to a project's front
+# matter.
+#
+# Fields
+#   title    required.
+#   authors  required. Lab members first as they appear on the paper.
+#   venue    required. Where it appeared ("arXiv", "IAAI 2026", a workshop).
+#   year     required. Used for grouping.
+#   date     required. ISO YYYY-MM-DD, used for ordering within a year. Use the
+#            submission or acceptance date when the exact date is unknown.
+#   type     required. paper | workshop | preprint | tutorial. Drives the badge.
+#   area     optional. A project slug (ai-systems-agents,
+#            evaluation-experimental-design, statistical-monitoring). Entries
+#            without one appear on /publications only.
+#   link     optional. External URL (arXiv, proceedings). Preferred.
+#   file     optional. A file in images/papers/, used only when there is no link.
+#   summary  optional. One or two plain sentences for the publications page.
+
+- title: Context-Aware Hospitalization Forecasting Evaluations for Decision Support using LLMs
+  authors: Rhea Makkuni, Ananya Joshi
+  venue: arXiv
+  year: 2026
+  date: 2026-04-27
+  type: preprint
+  area: statistical-monitoring
+  link: https://arxiv.org/abs/2604.23949
+  summary: >-
+    Compares direct LLM forecasting, classical time-series models, and a hybrid
+    pipeline across 60 US counties, and finds LLMs work best as components
+    inside structured models rather than as standalone forecasters.
+
+- title: Reliable Self-Harm Risk Screening via Adaptive Multi-Agent LLM Systems
+  authors: Meghana Karnam, Ananya Joshi
+  venue: arXiv
+  year: 2026
+  date: 2026-04-24
+  type: preprint
+  area: statistical-monitoring
+  link: https://arxiv.org/abs/2604.22154
+  summary: >-
+    A statistical framework for multi-agent pipelines structured as directed
+    acyclic graphs, cutting the false positive rate by 40% against single-agent
+    models without a matching rise in false negatives.
+
+- title: Optimal Question Selection from a Large Question Bank for Clinical Field Recovery in Conversational Psychiatric Intake
+  authors: Guan Gui, Peter Zandi, Jacob Taylor, Ananya Joshi
+  venue: arXiv
+  year: 2026
+  date: 2026-04-23
+  type: preprint
+  area: ai-systems-agents
+  link: https://arxiv.org/abs/2604.22067
+  summary: >-
+    A benchmark built from 655 clinician-written questions, showing that
+    LLM-guided adaptive questioning recovers more clinical detail than random
+    or fixed-form questioning, especially when patients are less forthcoming.
+
+- title: "Reliability Auditing for Downstream LLM Tasks in Psychiatry: LLM-Generated Hospitalization Risk Scores"
+  authors: Shevya Panda, Shinjini Bose, Ananya Joshi
+  venue: arXiv
+  year: 2026
+  date: 2026-04-23
+  type: preprint
+  area: evaluation-experimental-design
+  link: https://arxiv.org/abs/2604.22063
+  summary: >-
+    A structured perturbation analysis over four models and four prompt
+    framings, showing that clinically insignificant changes to context shift
+    predicted hospitalization risk.
+
+- title: Auditing Generative AI Benchmarks with a Multi-Agent Compliance System
+  authors: Ananya Joshi, Michael Rudow
+  venue: AAAI Workshop on Agentic AI Benchmarks and Applications for Enterprise Tasks
+  year: 2026
+  date: 2025-11-17
+  type: workshop
+  area: statistical-monitoring
+
+- title: Constrained Process Maps for Multi-Agent Generative AI Workflows
+  authors: Ananya Joshi, Michael Rudow
+  venue: AAAI Workshop on Foundations of Agentic Systems Theory
+  year: 2026
+  date: 2025-11-11
+  type: workshop
+  area: statistical-monitoring
+  summary: >-
+    Used to audit open-source benchmarks on mental health and self-harm topics.
+
+- title: "Decomposing Theory of Mind: How Emotional Processing Mediates ToM Abilities in LLMs"
+  authors: Ivan Chulo, Ananya Joshi
+  venue: AAAI Workshop on Advancing AI through Theory of Mind
+  year: 2026
+  date: 2025-11-18
+  type: workshop
+  area: evaluation-experimental-design
+  link: https://arxiv.org/abs/2511.15895
+  summary: >-
+    Finds that gains on belief-attribution tasks track patterns matching
+    emotional processing rather than logical reasoning.
+
+- title: "Generative AI in Healthcare: Causality, Decision, and Real-world Case Study"
+  authors: With collaborators
+  venue: AAAI Tutorial
+  year: 2026
+  date: 2025-11-01
+  type: tutorial
+
+- title: "Reducing Alert Fatigue Through AI Ranking: A Deployed Public Health Data Monitoring System"
+  authors: With the CMU Delphi Group
+  venue: IAAI
+  year: 2026
+  date: 2025-11-01
+  type: paper
+  area: statistical-monitoring

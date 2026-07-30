@@ -1,0 +1,62 @@
+---
+layout: default
+title: Publications
+nav: publications
+description: Papers, workshop papers, preprints, and tutorials from the PALS Research Lab
+---
+<main class="main">
+  <section class="section research-intro reveal">
+    <div class="container research-intro-inner">
+      <h1 class="page-title">Publications</h1>
+      <p class="research-intro-text">
+        Papers, preprints, and tutorials from the lab on AI for psychiatry — statistical monitoring,
+        multi-agent clinical systems, and the evaluation methods that test them.
+      </p>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      {% comment %}
+        Entries come from _data/publications.yml so a paper is written down once
+        and the research area pages filter the same list. Sorting by `date`
+        (ISO) rather than `year` orders correctly inside a year too.
+      {% endcomment %}
+      {% assign publications = site.data.publications | sort: "date" | reverse %}
+      {% assign years = publications | group_by: "year" | sort: "name" | reverse %}
+
+      {% for year in years %}
+      <section class="pub-year">
+        <h2 class="pub-year-title">{{ year.name }}</h2>
+        <ul class="pub-list">
+          {% for pub in year.items %}
+          <li class="pub">
+            <div class="pub-main">
+              <h3 class="pub-title">
+                {% if pub.link and pub.link != empty %}
+                <a href="{{ pub.link }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+                {% elsif pub.file and pub.file != empty %}
+                <a href="/images/papers/{{ pub.file }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+                {% else %}
+                {{ pub.title }}
+                {% endif %}
+              </h3>
+              <p class="pub-authors">{{ pub.authors }}</p>
+              {% if pub.summary and pub.summary != empty %}
+              <p class="pub-summary">{{ pub.summary }}</p>
+              {% endif %}
+            </div>
+            <div class="pub-meta">
+              {% if pub.type and pub.type != empty %}
+              <span class="pub-type pub-type-{{ pub.type }}">{{ pub.type }}</span>
+              {% endif %}
+              <span class="pub-venue">{{ pub.venue }}</span>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+  </section>
+</main>

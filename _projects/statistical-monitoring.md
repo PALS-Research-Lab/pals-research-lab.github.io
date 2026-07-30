@@ -46,18 +46,8 @@ projects:
       adaptive sampling, and regret guarantees, cutting the false positive rate
       by 40% against single-agent models without losing recall.
 
-# Papers are listed newest first. `link` is an external URL (arXiv); `file`
-# points at images/papers/ and is only used when there is no `link`.
-papers:
-  - title: "Context-Aware Hospitalization Forecasting Evaluations for Decision Support using LLMs"
-    authors: Rhea Makkuni, Ananya Joshi
-    venue: arXiv, 2026
-    link: https://arxiv.org/abs/2604.23949
-
-  - title: Reliable Self-Harm Risk Screening via Adaptive Multi-Agent LLM Systems
-    authors: Meghana Karnam, Ananya Joshi
-    venue: arXiv, 2026
-    link: https://arxiv.org/abs/2604.22154
+# Papers are NOT listed here. They live in _data/publications.yml; an entry
+# joins this page's "Selected work" by setting `area: statistical-monitoring`.
 ---
 
 Clinical psychiatry depends on timely detection of change: relapse risk, treatment response, and other events that matter for patient care. Our work builds measurement frameworks and monitoring methods that can surface these signals reliably from real-world data streams.
