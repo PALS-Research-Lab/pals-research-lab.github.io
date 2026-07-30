@@ -1,0 +1,93 @@
+---
+layout: default
+---
+<main class="main">
+  <article class="section project-detail reveal is-visible">
+    <div class="container project-detail-inner">
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/research">Research</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">{{ page.title | truncate: 50 }}</span>
+      </nav>
+
+      <header class="project-detail-header">
+        {% if page.graphic %}
+        <div class="project-detail-media">
+          <img src="/images/research/{{ page.graphic }}" alt="" aria-hidden="true" />
+        </div>
+        {% endif %}
+        <div class="project-detail-heading">
+          <h1 class="post-title">{{ page.title }}</h1>
+          {% if page.description %}
+          <p class="project-detail-lead">{{ page.description }}</p>
+          {% endif %}
+        </div>
+      </header>
+
+      <hr class="header-divider">
+
+      <div class="post-body markdown-content">
+        {{ content }}
+      </div>
+
+      {% if page.projects and page.projects.size > 0 %}
+      <section class="project-threads">
+        <h2 class="project-threads-title">Projects in this area</h2>
+        <ul class="thread-list">
+          {% for thread in page.projects %}
+          <li class="thread">
+            {% if thread.figure and thread.figure != empty %}
+            <div class="thread-figure">
+              <img src="/images/figures/{{ thread.figure }}" alt="" aria-hidden="true" loading="lazy" />
+            </div>
+            {% endif %}
+            <div class="thread-body">
+              <h3 class="thread-name">{{ thread.name }}</h3>
+              {% if thread.summary and thread.summary != empty %}
+              <p class="thread-summary">{{ thread.summary }}</p>
+              {% endif %}
+              {% if thread.link and thread.link != empty %}
+              <p class="thread-link">
+                <a href="{{ thread.link }}" target="_blank" rel="noopener noreferrer">{{ thread.link_label | default: thread.link }} &nearr;</a>
+              </p>
+              {% endif %}
+              {% if thread.people and thread.people != empty %}
+              <p class="thread-people">{{ thread.people }}</p>
+              {% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if page.papers and page.papers.size > 0 %}
+      <section class="project-papers">
+        <h2 class="project-threads-title">Selected work</h2>
+        <ul class="paper-list">
+          {% for paper in page.papers %}
+          <li class="paper">
+            <h3 class="paper-title">
+              {% if paper.file and paper.file != empty %}
+              <a href="/images/papers/{{ paper.file }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+              {% else %}
+              {{ paper.title }}
+              {% endif %}
+            </h3>
+            <p class="paper-meta">
+              {{ paper.authors }}{% if paper.venue and paper.venue != empty %} &middot; {{ paper.venue }}{% endif %}
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <p class="project-back">
+        <a href="/research" class="section-link">&larr; Back to research</a>
+      </p>
+    </div>
+  </article>
+</main>

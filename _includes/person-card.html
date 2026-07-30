@@ -1,0 +1,38 @@
+{% comment %}
+  One person card. Params:
+    person      : a document from the `people` collection (required)
+    extra_class : optional extra class on the card, for callers that need a
+                  styling or scripting hook. Unused at present.
+
+  Falls back to auto-generated initials when `photo` is missing, and renders the
+  optional `topics` (research interests) and `now` (alumni destination) lines.
+{% endcomment %}
+<div class="person-card {{ include.extra_class }}">
+  {% if include.person.photo and include.person.photo != empty %}
+    <img src="/images/people/{{ include.person.photo }}"
+         alt="Photo of {{ include.person.name }}" class="person-photo"
+         loading="lazy" decoding="async" />
+  {% else %}
+    {% assign parts = include.person.name | split: " " %}
+    {% capture initials %}{% for p in parts %}{{ p | slice: 0 }}{% endfor %}{% endcapture %}
+    <div class="person-initials" aria-hidden="true">{{ initials }}</div>
+  {% endif %}
+
+  <h3>
+    {% if include.person.website and include.person.website != empty %}
+      <a href="https://{{ include.person.website }}" target="_blank" rel="noopener noreferrer">{{ include.person.name }}</a>
+    {% else %}
+      {{ include.person.name }}
+    {% endif %}
+  </h3>
+
+  <p class="person-role">{{ include.person.role }}</p>
+
+  {% if include.person.topics and include.person.topics != empty %}
+  <p class="person-topics">{{ include.person.topics }}</p>
+  {% endif %}
+
+  {% if include.person.now and include.person.now != empty %}
+  <p class="person-now">{{ include.person.now }}</p>
+  {% endif %}
+</div>

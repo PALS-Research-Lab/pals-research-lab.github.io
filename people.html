@@ -1,0 +1,103 @@
+---
+layout: default
+title: Our Team
+nav: people
+description: People at the PALS Research Lab
+---
+{% comment %}
+  Routing is by `tier` front matter: pi | postdoc | alumni, with no tier meaning
+  student/collaborator. `role == "PI"` is still honoured so an older-style entry
+  keeps working.
+{% endcomment %}
+{% assign pi_person = nil %}
+{% assign postdoc_list = "" | split: "," %}
+{% assign other_people_list = "" | split: "," %}
+{% assign alumni_list = "" | split: "," %}
+
+{% for person in site.people %}
+  {% if person.tier == "pi" or person.role == "PI" %}
+    {% assign pi_person = person %}
+  {% elsif person.tier == "postdoc" %}
+    {% assign postdoc_list = postdoc_list | push: person %}
+  {% elsif person.tier == "alumni" %}
+    {% assign alumni_list = alumni_list | push: person %}
+  {% else %}
+    {% assign other_people_list = other_people_list | push: person %}
+  {% endif %}
+{% endfor %}
+
+<main class="main">
+  <section id="people" class="section people-section reveal">
+    <div class="container">
+      <h2>Our Team</h2>
+
+      {% if pi_person %}
+      <div class="pi-feature">
+        <div class="pi-feature-identity">
+          <div class="pi-feature-media">
+            {% if pi_person.photo and pi_person.photo != empty %}
+              <img src="/images/people/{{ pi_person.photo }}" alt="Photo of {{ pi_person.name }}" class="person-photo person-photo-lg"/>
+            {% else %}
+              {% assign parts = pi_person.name | split: " " %}
+              {% capture initials %}{% for p in parts %}{{ p | slice: 0 }}{% endfor %}{% endcapture %}
+              <div class="person-initials person-initials-lg" aria-hidden="true">{{ initials }}</div>
+            {% endif %}
+          </div>
+          <p class="column-label">Principal Investigator</p>
+          <h3>
+            {% if pi_person.website and pi_person.website != empty %}
+              <a href="https://{{ pi_person.website }}" target="_blank" rel="noopener noreferrer">{{ pi_person.name }}</a>
+            {% else %}
+              {{ pi_person.name }}
+            {% endif %}
+          </h3>
+          <p class="person-role">{{ pi_person.role }}</p>
+          {% if pi_person.topics and pi_person.topics != empty %}
+          <p class="person-topics">{{ pi_person.topics }}</p>
+          {% endif %}
+        </div>
+        {% if pi_person.content and pi_person.content != empty %}
+        <div class="pi-feature-bio">{{ pi_person.content }}</div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if postdoc_list.size > 0 %}
+      <h3 class="team-subheading">Postdoctoral Researchers</h3>
+      <div class="people-grid people-grid-wide">
+        {% assign postdocs_sorted = postdoc_list | sort: "rank" %}
+        {% for person in postdocs_sorted %}
+          {% include person-card.html person=person %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h3 class="team-subheading">Students &amp; Collaborators</h3>
+      <div id="team-grid-container" class="people-grid">
+        {% comment %}
+          Sorted by `name`, i.e. by first name as displayed. The grid used to be
+          shuffled here and again client-side in default.html; both were removed
+          so the order is stable and scannable.
+        {% endcomment %}
+        {% assign other_people_sorted = other_people_list | sort_natural: "name" %}
+        {% for person in other_people_sorted %}
+          {% include person-card.html person=person %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% if alumni_list.size > 0 %}
+  <section id="alumni" class="section people-section alumni-section reveal">
+    <div class="container">
+      <h2>Alumni &amp; Friends</h2>
+      <div class="people-grid">
+        {% assign alumni_sorted = alumni_list | sort_natural: "name" %}
+        {% for person in alumni_sorted %}
+          {% include person-card.html person=person %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</main>

@@ -5,11 +5,21 @@ layout: default
 <main class="post-page-main">
     <div class="container post-container">
 
+        {% if page.categories contains "blog" %}
+            {% assign archive_label = "Blog" %}
+            {% assign archive_url = "/blog" %}
+            {% assign back_title = "Back to Blog" %}
+        {% else %}
+            {% assign archive_label = "News" %}
+            {% assign archive_url = "/news" %}
+            {% assign back_title = "Back to News" %}
+        {% endif %}
+
         <!-- Breadcrumb navigation -->
         <nav class="post-breadcrumb" aria-label="Breadcrumb">
-            <a href="/index.html">Home</a>
+            <a href="/">Home</a>
             <span class="breadcrumb-sep">/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="{{ archive_url }}">{{ archive_label }}</a>
             <span class="breadcrumb-sep">/</span>
             <span class="breadcrumb-current">{{ page.title | truncate: 60 }}</span>
         </nav>
@@ -46,9 +56,9 @@ layout: default
                         <span class="pagination-btn prev-btn disabled"></span>
                     {% endif %}
 
-                    <a href="/blog.html" class="pagination-btn back-btn">
+                    <a href="{{ archive_url }}" class="pagination-btn back-btn">
                         <span class="pag-label">All Posts</span>
-                        <span class="pag-title">Back to Blog</span>
+                        <span class="pag-title">{{ back_title }}</span>
                     </a>
 
                     {% if page.next %}

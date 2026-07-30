@@ -1,7 +1,8 @@
 ---
 name: Synthia Qia Wang
 role: Postdoctoral Scholar
-photo: synthia.JPG
-rank: 2
 tier: postdoc
+photo: synthia.JPG
+topics: Phippsbot;
+rank: 1
 ---
