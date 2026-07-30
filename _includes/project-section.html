@@ -1,0 +1,112 @@
+{% assign project = include.project %}
+{% assign project_content = include.content | default: project.content %}
+
+<section id="{{ project.slug | default: project.title | slugify }}" class="section project-inline-detail reveal">
+  <div class="container">
+
+    <div class="project-hero-grid{% unless project.graphic %} project-hero-grid-solo{% endunless %}">
+      <div class="project-hero-text">
+        <h2 class="page-title project-hero-title">{{ project.title }}</h2>
+
+        {% if project.description %}
+        <p class="project-hero-lead">{{ project.description }}</p>
+        {% endif %}
+      </div>
+
+      {% if project.graphic %}
+      <div class="project-hero-media">
+        <img src="/images/research/{{ project.graphic }}" alt="" aria-hidden="true" loading="lazy" />
+      </div>
+      {% endif %}
+    </div>
+
+    {% if project_content != empty %}
+    <div class="post-body markdown-content project-intro">
+      {{ project_content }}
+    </div>
+    {% endif %}
+
+    {% if project.projects and project.projects.size > 0 %}
+    <section class="project-threads">
+      <h3 class="project-threads-title">Projects in this area</h3>
+
+      {% assign text_only = project.projects | where_exp: "t", "t.figure == nil" %}
+      {% assign remainder = text_only.size | modulo: 2 %}
+      {% if remainder == 1 %}
+        {% assign solo = text_only | last %}
+      {% endif %}
+
+      <ul class="thread-list">
+        {% for thread in project.projects %}
+        <li class="thread{% if thread.figure and thread.figure != empty %} thread-has-figure{% elsif solo and thread.name == solo.name %} thread-wide{% endif %}">
+          {% if thread.figure and thread.figure != empty %}
+          <div class="thread-figure">
+            <img src="/images/figures/{{ thread.figure }}" alt="" aria-hidden="true" loading="lazy" />
+          </div>
+          {% endif %}
+
+          <div class="thread-body">
+            <h4 class="thread-name">
+              {% if thread.link and thread.link != empty %}
+              <a href="{{ thread.link }}" target="_blank" rel="noopener noreferrer">{{ thread.name }}</a>
+              {% else %}
+              {{ thread.name }}
+              {% endif %}
+            </h4>
+
+            {% if thread.summary and thread.summary != empty %}
+            <div class="thread-summary">
+              {{ thread.summary | markdownify | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}
+            </div>
+            {% endif %}
+
+            {% if thread.people and thread.people != empty %}
+            <p class="thread-people">{{ thread.people }}</p>
+            {% endif %}
+
+            {% if thread.link and thread.link != empty %}
+            <p class="thread-link">
+              <a href="{{ thread.link }}" target="_blank" rel="noopener noreferrer">
+                {{ thread.link_label | default: thread.link }} &nearr;
+              </a>
+            </p>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% assign area_papers = site.data.publications | where: "area", project.slug | sort: "date" | reverse %}
+    {% if area_papers.size > 0 %}
+    <section class="project-papers">
+      <div class="project-papers-header">
+        <h3 class="project-threads-title">Selected work</h3>
+        <a href="/publications" class="section-link">All publications &rarr;</a>
+      </div>
+
+      <ul class="paper-list">
+        {% for paper in area_papers %}
+        <li class="paper">
+          <h4 class="paper-title">
+            {% if paper.link and paper.link != empty %}
+            <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+            {% elsif paper.file and paper.file != empty %}
+            <a href="/images/papers/{{ paper.file }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+            {% else %}
+            {{ paper.title }}
+            {% endif %}
+          </h4>
+
+          <p class="paper-meta">
+            {{ paper.authors }}{% if paper.venue and paper.venue != empty %} &middot; {{ paper.venue }}, {{ paper.year }}{% endif %}
+          </p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+  </div>
+</section>

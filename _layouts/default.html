@@ -9,17 +9,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css"
         integrity="sha384-KJ5PVEqRubvyTkEk9eSz4NphibkpEJll7FJEsAmuLvb6BiwWLVXVOVoQsI5ReK8E"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/pals_logo.png" />
   <link rel="apple-touch-icon" href="/images/pals_logo.png" />
-  <!-- Open Graph / link preview -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="PALS Research Lab" />
   <meta property="og:title" content="{{ page.title | default: site.title }}" />
   <meta property="og:description" content="{{ page.description | default: site.description }}" />
   <meta property="og:image" content="https://pals-lab.org/images/pals_logo.png" />
   <meta property="og:url" content="https://pals-lab.org{{ page.url }}" />
-  <!-- Twitter/X card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://pals-lab.org/images/pals_logo.png" />
   <meta name="twitter:title" content="{{ page.title | default: site.title }}" />
@@ -42,7 +39,6 @@
       <a href="/research" {% if nav_active == "research" %}class="active"{% endif %}>Research</a>
       <a href="/publications" {% if nav_active == "publications" %}class="active"{% endif %}>Publications</a>
       <a href="/news" {% if nav_active == "news" %}class="active"{% endif %}>News</a>
-      <a href="/blog" {% if nav_active == "blog" %}class="active"{% endif %}>Blog</a>
       <a href="/people" {% if nav_active == "people" %}class="active"{% endif %}>People</a>
       <a href="/contact" {% if nav_active == "contact" %}class="active"{% endif %}>Contact</a>
     </nav>
@@ -50,34 +46,6 @@
 </header>
 
 {{ content }}
-
-<!-- {% comment %}
-  Sponsor band is opt-in per page via `show_sponsors: true` in front matter
-  (currently home and contact only), so it does not repeat on every page.
-{% endcomment %}
-{% if page.show_sponsors and site.data.sponsors and site.data.sponsors.size > 0 %}
-<section class="sponsors" aria-labelledby="sponsors-heading">
-  <div class="container">
-    <h2 id="sponsors-heading" class="sponsors-heading">Supported By</h2>
-    <ul class="sponsors-grid">
-      {% for sponsor in site.data.sponsors %}
-      {%- capture sponsor_logo -%}
-        <img src="/images/sponsors/{{ sponsor.file }}" alt="{{ sponsor.name }}"
-             class="sponsor-logo" style="--sponsor-h: {{ sponsor.height | default: 34 }}px"
-             width="{{ sponsor.w }}" height="{{ sponsor.h }}" loading="lazy" decoding="async" />
-      {%- endcapture -%}
-      <li class="sponsor-item">
-        {% if sponsor.url and sponsor.url != empty %}
-        <a href="{{ sponsor.url }}" class="sponsor-link" target="_blank" rel="noopener noreferrer">{{ sponsor_logo }}</a>
-        {% else %}
-        {{ sponsor_logo }}
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %} -->
 
 <footer class="footer">
   <div class="container footer-inner">
@@ -105,15 +73,6 @@
         GitHub
       </a>
     </div>
-    <div class="footer-col footer-affiliations">
-      <h3 class="footer-heading">Affiliations</h3>
-      <ul class="footer-list">
-        <li><a href="https://www.hopkinsmedicine.org/inhealth/mood-disorders" target="_blank" rel="noopener noreferrer">Johns Hopkins Mood Disorders Center</a></li>
-        <li><a href="https://www.cs.jhu.edu/" target="_blank" rel="noopener noreferrer">Department of Computer Science</a></li>
-        <li><a href="https://malonecenter.jhu.edu/" target="_blank" rel="noopener noreferrer">Malone Center for Engineering in Healthcare</a></li>
-        <li><a href="https://ai.jhu.edu/" target="_blank" rel="noopener noreferrer">Data Science and AI Institute</a></li>
-      </ul>
-    </div>
   </div>
   <div class="footer-bar">
     <div class="container footer-bar-inner">
@@ -136,7 +95,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Lenis smooth scroll
     if (!reduceMotion && typeof Lenis !== 'undefined') {
       const lenis = new Lenis({
         duration: 1.1,
@@ -150,7 +108,18 @@
       requestAnimationFrame(raf);
     }
 
-    // Subtle scroll reveals
+    const teamGrid = document.getElementById('team-grid-container');
+    if (teamGrid) {
+      const cards = Array.prototype.slice.call(teamGrid.children);
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = tmp;
+      }
+      cards.forEach(function (card) { teamGrid.appendChild(card); });
+    }
+
     if (!reduceMotion) {
       const revealEls = document.querySelectorAll('.reveal');
       if (revealEls.length && 'IntersectionObserver' in window) {

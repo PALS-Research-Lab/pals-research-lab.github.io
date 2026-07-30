@@ -45,12 +45,11 @@ img {
   flex: 1;
 }
 
-/* ── Sticky top bar ── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(135deg, #12005A, #0048a5);
+  background: linear-gradient(135deg, #24145F, #0E5E8C);
   color: white;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
@@ -79,11 +78,6 @@ img {
   transform: scale(1.02);
 }
 
-/* No mix-blend-mode here: lablogo-transparent.png has a genuinely transparent
-   background (verified alpha 0 at all corners), so there is no plate to knock
-   out. The blend mode was vestigial from new-pals-logo.png, which does bake in
-   an opaque #0C0253 background, and it forced a compositing layer that made the
-   logo visibly flash on first paint. */
 .site-logo {
   height: 64px;
   width: auto;
@@ -118,7 +112,6 @@ img {
   transition: color 0.2s ease;
 }
 
-/* Underline wipes in from the left rather than fading a static border. */
 .main-nav a::after {
   content: "";
   position: absolute;
@@ -126,7 +119,7 @@ img {
   right: 0.85rem;
   bottom: 0.2rem;
   height: 2px;
-  background: var(--hopkins-gold);
+  background: var(--hopkins-blue);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.25s ease;
@@ -184,7 +177,6 @@ img {
   }
 }
 
-/* ── Sections ── */
 .section {
   padding: 1.35rem 0;
 }
@@ -239,18 +231,38 @@ a {
   transition: color 0.2s ease;
 }
 
-/* ── Home hero (photo-ready) ── */
 .home-hero {
   position: relative;
   color: white;
   padding: 3.25rem 0;
-  background-color: var(--hopkins-blue);
-  background-image:
-    linear-gradient(135deg, rgba(18, 0, 90, 0.92), rgba(0, 72, 165, 0.82)),
-    url("/images/lab-hero.jpg");
+  min-height: 420px;
+  background-color: #111;
+  overflow: hidden;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/lab-hero.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   background-repeat: no-repeat;
+  filter: grayscale(100%);
+  z-index: 0;
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70);
+  z-index: 1;
+}
+
+.home-hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .home-hero-inner {
@@ -265,8 +277,6 @@ a {
   color: white;
 }
 
-/* Expands the acronym under the hero title. The initials are bolded in gold so
-   the P-A-L-S mapping is legible at a glance without spelling it out. */
 .home-hero-expansion {
   margin: 0 0 1.1rem;
   font-size: 1.05rem;
@@ -326,16 +336,12 @@ a {
   transform: translateY(-2px);
 }
 
-/* ── Projects ── */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 0.85rem;
 }
 
-/* Flex column + margin-top:auto on the CTA (below) keeps "Learn more" pinned to
-   the card bottom. As display:block the CTA followed the text, so a title that
-   wrapped to two lines pushed it down and the links staggered across the row. */
 .project-card {
   background: white;
   border: 1px solid #ddd;
@@ -375,9 +381,6 @@ a {
   color: var(--hopkins-blue);
 }
 
-/* Diagram panel at the top of each research card. The tinted panel is what
-   separates the artwork from the card body — the SVGs themselves are
-   transparent so they sit on any background. */
 .project-card-media {
   display: flex;
   align-items: center;
@@ -391,8 +394,6 @@ a {
   overflow: hidden;
 }
 
-/* Height-constrained so the 96x96 and 130x96 icons share a baseline size and
-   differ only in width, matching how the design sheet presents them. */
 .project-card-media img {
   width: auto;
   height: 100%;
@@ -417,7 +418,6 @@ a {
   font-size: 0.95rem;
 }
 
-/* ── Home mission ── */
 .mission-section {
   background: var(--light-gray);
   border-top: 1px solid var(--border);
@@ -458,7 +458,6 @@ a {
   }
 }
 
-/* ── Research overview ── */
 .research-intro,
 .research-grid-section,
 .research-footer {
@@ -469,9 +468,6 @@ a {
   padding: 2rem 0 0.5rem;
 }
 
-/* Title left, intro right. A single centred column left a wide gap down the
-   right-hand side; splitting it fills the container without pushing the
-   paragraph out to an unreadable line length. */
 .research-intro-inner {
   display: grid;
   grid-template-columns: minmax(180px, 280px) 1fr;
@@ -501,8 +497,6 @@ a {
   padding: 1.5rem 0 2rem;
 }
 
-/* Fixed 3-up rather than auto-fit: there are three research areas and an
-   auto-fit track drops to 2+1 at intermediate widths, orphaning one card. */
 .research-grid {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.35rem;
@@ -527,18 +521,11 @@ a {
   }
 }
 
-/* ── Research detail page ── */
-/* The page used to be an 800px column of hairline-separated blocks with the
-   area graphic boxed into a 152px tile. It now runs to the full container like
-   /research, with the graphic given room in a tinted hero band and the section
-   breaks carried by whitespace and cards rather than rules. */
 .project-hero {
   background: linear-gradient(180deg, var(--light-gray) 0%, #ffffff 100%);
   padding: 1rem 0 1.25rem;
 }
 
-/* Graphic kept small: it is decoration, and at 300px it pushed the first
-   project most of a screen down the page. */
 .project-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(140px, 190px);
@@ -564,8 +551,6 @@ a {
   line-height: 1.6;
 }
 
-/* No frame: the graphics are line drawings on transparent backgrounds, so a
-   border and gray fill read as a box around nothing. */
 .project-hero-media img {
   width: 100%;
   height: auto;
@@ -587,7 +572,6 @@ a {
   padding-top: 0;
 }
 
-/* Individual projects listed under a research area. */
 .project-threads {
   margin-top: 2rem;
 }
@@ -601,8 +585,6 @@ a {
   color: var(--muted);
 }
 
-/* Cards with a figure span the row so the image has room; text-only cards pair
-   up 2-across, which keeps them from stranding half a row of whitespace. */
 .thread-list {
   list-style: none;
   margin: 0;
@@ -630,9 +612,6 @@ a {
   box-shadow: var(--card-shadow-hover);
 }
 
-/* Figure gets close to half the row so screenshots are legible; at 168px in a
-   800px column they were unreadable thumbnails. Alternating sides keeps a long
-   list of cards from reading as a single stripe. */
 .thread-has-figure {
   grid-column: 1 / -1;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -647,7 +626,6 @@ a {
   order: 0;
 }
 
-/* No crop: these are screenshots and figures, so they are shown whole. */
 .thread-figure img {
   width: 100%;
   height: auto;
@@ -660,8 +638,6 @@ a {
   min-width: 0;
 }
 
-/* A text-only card left alone on its row would strand half the width, so it
-   spans instead. Set in the template, which knows whether the count is odd. */
 .thread-wide {
   grid-column: 1 / -1;
 }
@@ -718,7 +694,6 @@ a {
   color: var(--muted);
 }
 
-/* Selected papers under a research area. */
 .project-papers {
   margin-top: 2.75rem;
 }
@@ -781,8 +756,6 @@ a {
   color: var(--muted);
 }
 
-/* Stack early: below ~820px the two-column split leaves the summary in a
-   column too narrow to read. */
 @media (max-width: 820px) {
   .thread-list {
     grid-template-columns: minmax(0, 1fr);
@@ -795,8 +768,6 @@ a {
     padding: 1.25rem;
   }
 
-  /* Figure back above the text on every card, regardless of the desktop
-     alternation. */
   .thread-has-figure .thread-figure,
   .thread-has-figure:nth-child(even) .thread-figure {
     order: 0;
@@ -811,7 +782,6 @@ a {
   margin-top: 2.5rem;
 }
 
-/* ── Publications ── */
 .pub-year {
   margin-top: 2rem;
 }
@@ -836,8 +806,6 @@ a {
   gap: 0.85rem;
 }
 
-/* Title block left, venue rail right. The rail is fixed-width so the badges
-   line up down the page rather than tracking each title's length. */
 .pub {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 210px;
@@ -915,8 +883,8 @@ a {
 }
 
 .pub-type-tutorial {
-  background: var(--hopkins-gold);
-  color: var(--hopkins-blue);
+  background: var(--hopkins-blue);
+  color: var(--light-gray);
 }
 
 .pub-venue {
@@ -931,8 +899,6 @@ a {
     gap: 0.75rem;
   }
 
-  /* Badge and venue above the title on narrow screens, so the title stays the
-     first thing read. */
   .pub-meta {
     order: -1;
     flex-direction: row;
@@ -941,7 +907,6 @@ a {
   }
 }
 
-/* ── News list (home + archives) ── */
 .news-list,
 .blog-archive-section .updates-list {
   display: flex;
@@ -1033,9 +998,6 @@ a {
   margin-top: 0.5rem;
 }
 
-/* ── Buttons / contact ──
-   The contact page is a single short section, so it gets more generous padding
-   than the global .section rule and a constrained measure for readability. */
 .join-section {
   padding: 2.75rem 0 3rem;
 }
@@ -1085,8 +1047,6 @@ a {
   line-height: 1.6;
 }
 
-/* Was an unstyled bare div, which left the headings and buttons with no
-   grouping and an uneven 0.35rem / 0.75rem vertical rhythm. */
 .hubspot-section {
   background: white;
   border: 1px solid var(--border);
@@ -1131,9 +1091,6 @@ a {
   transform: translateY(-2px);
 }
 
-/* De-emphasised variant: the markup already carried `.inactive` but nothing
-   styled it, so this button was indistinguishable from the primary one. It is
-   still a working link, so it reads as secondary rather than disabled. */
 .hubspot-button.inactive {
   background: transparent;
   color: var(--hopkins-blue);
@@ -1144,62 +1101,28 @@ a {
   color: white;
 }
 
-/* ── People ── */
 .people-section h2 {
   margin-bottom: 1rem;
 }
 
-/* Two columns: identity (portrait + name + role + topics) on the left, bio on
-   the right. Photo-left with everything stacked beside it left a wide empty
-   strip down the right; this fills the container and keeps the bio at a
-   readable measure instead of stretching it across the full width. */
-.pi-feature {
+.people-columns {
   display: grid;
-  grid-template-columns: minmax(200px, 290px) 1fr;
-  gap: 2.75rem;
+  grid-template-columns: minmax(190px, 240px) 1fr;
+  gap: 2.25rem;
   align-items: start;
-  padding: 1.5rem 0 2rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  padding-top: 0.75rem;
 }
 
-.pi-feature-media {
-  margin-bottom: 1rem;
-}
-
-.pi-feature-identity {
+.people-column {
   min-width: 0;
 }
 
-.pi-feature-bio {
-  min-width: 0;
-  color: #444;
-  line-height: 1.65;
-  font-size: 1rem;
+.people-grid-lead {
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.pi-feature-bio p {
-  margin: 0 0 0.7rem;
-}
-
-.pi-feature-bio p:last-child {
-  margin-bottom: 0;
-}
-
-.pi-feature-identity .person-topics {
-  margin-top: 0.35rem;
-  font-size: 0.85rem;
-}
-
-@media (max-width: 820px) {
-  .pi-feature {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-}
-
-.pi-feature-identity .column-label {
-  margin: 0 0 0.25rem;
+.people-column .column-label {
+  margin: 0 0 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1207,23 +1130,39 @@ a {
   color: var(--muted);
 }
 
-.pi-feature-identity h3 {
-  margin: 0;
-  font-size: 1.35rem;
+.people-column-lead .people-grid + .column-label,
+.people-column-lead .pi-bio + .column-label {
+  margin-top: 1.5rem;
 }
 
-.pi-feature-identity h3 a {
-  color: var(--hopkins-blue);
+.pi-bio {
+  margin-top: 0.85rem;
+  color: #444;
+  line-height: 1.6;
+  font-size: 0.88rem;
 }
 
-.pi-feature-identity h3 a:hover {
-  text-decoration: underline;
+.pi-bio p {
+  margin: 0 0 0.65rem;
 }
 
-.team-subheading {
-  margin: 1rem 0 0.75rem;
-  font-size: 1.05rem;
-  color: var(--hopkins-blue);
+.pi-bio p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  .people-columns {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .people-grid-lead {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .pi-bio {
+    max-width: 60ch;
+  }
 }
 
 .people-grid {
@@ -1272,7 +1211,6 @@ a {
   color: var(--muted);
 }
 
-/* Research interests, from the optional `topics` front-matter field. */
 .person-topics {
   margin: 0.4rem 0 0;
   font-size: 0.76rem;
@@ -1280,17 +1218,12 @@ a {
   color: #6b7688;
 }
 
-/* Alumni destination, from the optional `now` front-matter field. */
 .person-now {
   margin: 0.4rem 0 0;
   font-size: 0.78rem;
   line-height: 1.35;
   font-weight: 600;
   color: var(--hopkins-blue);
-}
-
-.people-grid-wide {
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
 }
 
 .person-photo {
@@ -1307,11 +1240,6 @@ a {
   filter: grayscale(0%);
 }
 
-.person-photo-lg {
-  width: 140px;
-  height: 140px;
-}
-
 .person-initials {
   width: 96px;
   height: 96px;
@@ -1326,116 +1254,27 @@ a {
   letter-spacing: 0.04em;
 }
 
-.person-initials-lg {
-  width: 140px;
-  height: 140px;
-  font-size: 1.75rem;
-}
-
 @media (max-width: 600px) {
-  .pi-feature {
-    text-align: left;
-  }
-
   .people-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 }
 
-/* ── Sponsors band ──
-   Sits on white on purpose: several of these logos ship as opaque white
-   canvases rather than transparent PNGs, so any tinted background would show
-   them as visible rectangles. */
-.sponsors {
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 2.75rem 0 2.5rem;
-  margin-top: auto;
-}
-
-.sponsors-heading {
-  margin: 0 0 1.85rem;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* Fixed 4-up grid rather than flex-wrap. With 8 logos, letting them wrap
-   naturally leaves a single orphan on the second row at common widths; 4x2
-   (and 2x4 on small screens) always divides evenly. */
-.sponsors-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
-  gap: 2rem 2.5rem;
-}
-
-.sponsor-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
-
-/* Per-logo height comes from --sponsor-h (set in _data/sponsors.yml) so that
-   logos of very different aspect ratios read at similar visual weight. */
-.sponsor-logo {
-  height: var(--sponsor-h, 34px);
-  width: auto;
-  /* max-width + object-fit lets a wide wordmark scale down inside a narrow
-     column instead of overflowing or distorting. */
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.25s ease, opacity 0.25s ease;
-}
-
-/* Swap to full colour on hover/focus. Drop these two rules if a funder's brand
-   guidelines require their logo always be shown unmodified. */
-.sponsor-logo:hover,
-.sponsor-link:hover .sponsor-logo,
-.sponsor-link:focus-visible .sponsor-logo {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-.sponsor-link:focus-visible {
-  outline: 2px solid var(--hopkins-blue);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sponsor-logo {
-    transition: none;
-  }
-}
-
-/* ── Footer ── */
 .footer {
   background: var(--hopkins-blue);
   color: white;
   padding: 0;
   font-size: 0.9rem;
-  /* Kept for the case where _data/sponsors.yml is empty and the band above
-     (which also carries margin-top:auto) is not rendered. */
   margin-top: auto;
 }
 
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1.2fr;
+  grid-template-columns: repeat(2, minmax(0, 22rem));
+  justify-content: center;
   gap: 1.75rem 2.5rem;
   align-items: start;
+  text-align: center;
   padding: 2.5rem 1.25rem 1.75rem;
 }
 
@@ -1445,7 +1284,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--hopkins-gold);
+  color: var(--hopkins-blue);
 }
 
 .footer-text {
@@ -1467,7 +1306,6 @@ a {
   color: var(--hopkins-gold);
 }
 
-/* The contact column stacks two standalone links, which are inline by default. */
 .footer-contact .footer-link {
   display: block;
   margin-top: 0.4rem;
@@ -1477,6 +1315,7 @@ a {
   display: inline-flex !important;
   align-items: center;
   gap: 0.4rem;
+  margin-inline: auto;
 }
 
 .footer-github svg {
@@ -1493,19 +1332,12 @@ a {
   margin-bottom: 0.4rem;
 }
 
-/* Bottom logo bar: JHU | copyright | PALS */
-/* #0C0253 is sampled from pals_footer.png, which bakes in an opaque background
-   rather than shipping transparent. Matching the bar to it exactly is what stops
-   the logo reading as a pasted-on rectangle. */
 .footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background: #0C0253;
   padding: 1.25rem 0;
 }
 
-/* Grid rather than flex + space-between: the two logos have different widths,
-   so space-between left the copyright optically off-centre. Equal 1fr side
-   tracks centre it against the bar itself, independent of logo size. */
 .footer-bar-inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -1513,10 +1345,6 @@ a {
   gap: 1rem 1.5rem;
 }
 
-/* SOM.png is navy ink on a transparent canvas, so it needs a white card to be
-   legible on the dark bar. The card lives on the link, not the image: with the
-   global border-box rule, padding on the <img> was subtracted from its own
-   height, so `height: 46px` with 8px padding rendered the logo at only 30px. */
 .footer-jhu {
   display: inline-flex;
   align-items: center;
@@ -1535,8 +1363,6 @@ a {
   display: block;
 }
 
-/* Hide the whole card, not just the image, so a missing logo does not leave an
-   empty white rectangle sitting on the bar. */
 .footer-jhu:has(.footer-jhu-logo:not([src])),
 .footer-jhu:has(.footer-jhu-logo[src=""]) {
   display: none;
@@ -1557,8 +1383,6 @@ a {
   justify-self: end;
 }
 
-/* pals_footer.png is a horizontal lockup (2.75:1) on an opaque #0C0253 field,
-   which .footer-bar is set to match. */
 .footer-pals-logo {
   height: 54px;
   width: auto;
@@ -1568,28 +1392,12 @@ a {
   display: block;
 }
 
-@media (max-width: 960px) {
-  .footer-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Brand blurb spans the full row so Contact and Affiliations stay paired. */
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-}
-
 @media (max-width: 720px) {
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  .footer-brand {
-    grid-column: auto;
-  }
-
-  /* Stack: logos side by side on one row, copyright centred beneath. */
   .footer-bar-inner {
     grid-template-columns: auto auto;
     justify-content: space-between;
@@ -1600,11 +1408,6 @@ a {
   .footer-copy {
     grid-column: 1 / -1;
     order: 3;
-  }
-
-  .sponsors-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem 2rem;
   }
 }
 
@@ -1624,7 +1427,6 @@ a {
   }
 }
 
-/* ── Motion ── */
 .reveal {
   opacity: 0;
   transform: translateY(12px);
@@ -1636,9 +1438,6 @@ a {
   transform: translateY(0);
 }
 
-/* Cascade grid children in rather than popping a whole grid at once. Scoped to
-   these two grids on purpose — the sponsor band and news list read better
-   arriving as a unit. */
 .reveal .projects-grid > *,
 .reveal .people-grid > * {
   opacity: 0;
@@ -1682,8 +1481,6 @@ a {
     transition: none;
   }
 
-  /* Grid children must reset unconditionally — they start at opacity 0, so
-     without this they stay invisible when .is-visible is applied directly. */
   .reveal .projects-grid > *,
   .reveal .people-grid > * {
     opacity: 1;
@@ -1704,7 +1501,6 @@ a {
   }
 }
 
-/* ── Post page ── */
 .markdown-content img {
   max-width: 100%;
   width: 100%;
@@ -1948,5 +1744,350 @@ a {
 
   .archive-date {
     flex-basis: auto;
+  }
+}
+
+
+.lab-life-section {
+  border-top: 1px solid rgba(17, 36, 52, 0.14);
+}
+
+.lab-life-section h2 {
+  margin-bottom: 2rem;
+}
+
+.lab-collage {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.lab-collage-item {
+  margin: 0 0 1rem;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.lab-collage-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .lab-collage {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .lab-collage {
+    column-count: 1;
+  }
+}
+
+
+demo-showcase-section {
+  border-top: 1px solid rgba(17, 36, 52, 0.14);
+}
+
+.demo-showcase-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.demo-showcase-heading h2 {
+  margin: 0;
+}
+
+.demo-showcase-heading > p {
+  max-width: 30rem;
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.demo-showcase-kicker,
+.demo-showcase-label {
+  display: block;
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.demo-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.demo-showcase-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(17, 36, 52, 0.16);
+  border-radius: 14px;
+  background: white;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.demo-showcase-card:hover,
+.demo-showcase-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(17, 36, 52, 0.42);
+  box-shadow: 0 16px 36px rgba(17, 36, 52, 0.1);
+}
+
+.demo-showcase-card:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+.demo-showcase-image {
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(17, 36, 52, 0.12);
+  background: #f4f5f6;
+}
+
+.demo-showcase-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 220ms ease;
+}
+
+.demo-showcase-card:hover .demo-showcase-image img {
+  transform: scale(1.015);
+}
+
+.demo-showcase-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+.demo-showcase-content h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
+}
+
+.demo-showcase-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+
+.demo-showcase-link {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .demo-showcase-heading {
+    display: block;
+  }
+
+  .demo-showcase-heading > p {
+    margin-top: 0.75rem;
+  }
+
+  .demo-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pi-feature-section {
+  padding: 2.5rem 0 3rem;
+  background: white;
+}
+
+.pi-feature {
+  position: relative;
+  min-height: clamp(440px, 46vw, 530px);
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--hopkins-blue);
+  box-shadow: 0 20px 48px rgba(18, 0, 90, 0.16);
+  isolation: isolate;
+}
+
+.pi-feature-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.pi-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 42%, rgba(18, 0, 90, 0.14) 57%, rgba(18, 0, 90, 0.56) 100%),
+    linear-gradient(0deg, rgba(7, 11, 32, 0.2), transparent 42%);
+}
+
+.pi-feature-content {
+  position: absolute;
+  top: clamp(1.25rem, 2.5vw, 2rem);
+  right: clamp(1.25rem, 2.5vw, 2rem);
+  bottom: clamp(1.25rem, 2.5vw, 2rem);
+  display: flex;
+  width: 52%;
+  min-height: 0;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  background: rgba(239, 242, 246, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  border-radius: 14px;
+  box-shadow: 0 18px 42px rgba(9, 17, 42, 0.18);
+  color: #253047;
+  backdrop-filter: blur(9px);
+}
+
+.pi-feature-label {
+  margin: 0 0 0.85rem;
+  color: var(--hopkins-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pi-feature-content h2 {
+  margin: 0 0 0.45rem;
+  color: var(--hopkins-blue);
+  font-size: clamp(1.8rem, 3.2vw, 2.65rem);
+  line-height: 1.08;
+}
+
+.pi-feature-role {
+  margin: 0 0 1.15rem;
+  color: #4f5a6e;
+  font-size: clamp(0.76rem, 1.25vw, 0.9rem);
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.pi-feature-summary {
+  max-width: 29rem;
+  margin: 0;
+  color: #313b4d;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.pi-feature-link {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  padding-bottom: 0.18rem;
+  border-bottom: 1px solid rgba(18, 0, 90, 0.42);
+  color: var(--hopkins-blue);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.pi-feature-link:hover,
+.pi-feature-link:focus-visible {
+  color: #0e5e8c;
+}
+
+.pi-feature-affiliations {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(18, 0, 90, 0.16);
+  color: #4f5a6e;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.pi-feature-affiliations a {
+  color: #364763;
+}
+
+.pi-feature-affiliations a:hover,
+.pi-feature-affiliations a:focus-visible {
+  color: var(--hopkins-blue);
+  text-decoration: underline;
+}
+
+.pi-feature-affiliations span {
+  color: #7a8495;
+}
+
+@media (max-width: 760px) {
+  .pi-feature {
+    min-height: 0;
+    padding-top: min(59vw, 330px);
+  }
+
+  .pi-feature-image {
+    bottom: auto;
+    height: min(59vw, 330px);
+    object-position: 28% center;
+  }
+
+  .pi-feature::after {
+    top: min(59vw, 330px);
+    background: linear-gradient(135deg, #12005a, #0e5e8c);
+  }
+
+  .pi-feature-content {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: 0;
+    padding: 1.6rem 1.4rem 1.8rem;
+    overflow: visible;
+    background: rgba(239, 242, 246, 0.94);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .pi-feature-role {
+    font-size: 0.88rem;
+  }
+
+  .pi-feature-affiliations {
+    gap: 0.35rem 0.6rem;
+    padding-top: 0.9rem;
+    font-size: 0.76rem;
   }
 }

@@ -17,11 +17,6 @@ description: Papers, workshop papers, preprints, and tutorials from the PALS Res
 
   <section class="section reveal">
     <div class="container">
-      {% comment %}
-        Entries come from _data/publications.yml so a paper is written down once
-        and the research area pages filter the same list. Sorting by `date`
-        (ISO) rather than `year` orders correctly inside a year too.
-      {% endcomment %}
       {% assign publications = site.data.publications | sort: "date" | reverse %}
       {% assign years = publications | group_by: "year" | sort: "name" | reverse %}
 

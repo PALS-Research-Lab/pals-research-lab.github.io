@@ -4,45 +4,57 @@ title: Research
 nav: research
 description: Research areas at the PALS Research Lab
 ---
+
+<style>
+  .project-divider {
+    width: min(1200px, calc(100% - 3rem));
+    margin: 0 auto;
+    border: 0;
+    border-top: 1px solid #d8d8d8;
+  }
+</style>
+
 <main class="main research-page">
   <section class="section research-intro reveal">
     <div class="container research-intro-inner">
       <h1 class="page-title">Research</h1>
       <p class="research-intro-text">
         We work at the intersection of psychiatry and computer science, building monitoring methods,
-        AI systems for clinical processes, and rigorous ways to evaluate GenAI in behavioral health.
+        AI systems for clinical processes, and rigorous ways to evaluate GenAI in behavioral health.  Our work is inspired by the mission of Johns Hopkins Medicine to
+        "improve the health of the community and the world by setting the standard of excellence         in medical education, research and clinical care."
       </p>
     </div>
   </section>
+
+  <hr class="project-divider">
 
   <section class="section research-grid-section reveal">
     <div class="container">
       <div class="projects-grid research-grid">
         {% assign projects_sorted = site.projects | sort: "rank" %}
         {% for project in projects_sorted %}
-        <a href="{{ project.url }}" class="project-card project-card-link">
-          {% if project.graphic %}
-          <span class="project-card-media">
-            <img src="/images/research/{{ project.graphic }}" alt="" aria-hidden="true"
-                 loading="lazy" decoding="async" />
-          </span>
-          {% endif %}
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <span class="project-card-cta">Learn more &rarr;</span>
-        </a>
+          <a href="#{{ project.slug | default: project.title | slugify }}" class="project-card project-card-link">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <span class="project-card-cta">Read more &darr;</span>
+          </a>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="section research-footer reveal">
-    <div class="container">
-      <p>
-        Our work is inspired by the mission of Johns Hopkins Medicine to
-        "improve the health of the community and the world by setting the standard of excellence
-        in medical education, research and clinical care."
-      </p>
-    </div>
+
+  <hr class="project-divider">
+  
+  <section class="research-projects-scroll">
+    {% assign projects_sorted = site.projects | sort: "rank" %}
+    {% for project in projects_sorted %}
+      {% include project-section.html project=project content=project.content %}
+
+      {% unless forloop.last %}
+        <hr class="project-divider">
+      {% endunless %}
+    {% endfor %}
   </section>
+
 </main>

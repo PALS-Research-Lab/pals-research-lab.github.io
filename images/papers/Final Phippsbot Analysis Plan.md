@@ -13,7 +13,7 @@ How do psychiatrists and LLMs differ in their question formulation during psychi
 After all the clinician data, we will run LLM models on the same tool and vignettes. We will limit the LLM to the mean clinician interview duration. We will also consider doing other budgeted analysis on the LLM data, like a question-by-question analysis. 
 
 Github Commit Hashes  
-cd83af19787f3edeb2c960960473a728194ab96c (actual Phippsbot website and clinician study)  
+cd83af19787f3edeb2c960960473a728194ab96c (actual PhippsBot website and clinician study)
 3abb65d1b6e24cb982392147a5487faeb2be156b (patient simulator fork from Jonathan)  
 079508830f4ab9675af63810e7e654a7dc954c61(Guan’s repo that we might use for LLM analysis?) 
 
@@ -265,4 +265,4 @@ Interpretation Caveats
 * Engagement may be confounded with other factors (e.g., patient complexity, clinician experience)  
 * Given time-matching, duration will be similar across conditions; analysis will focus on message count and question density as primary engagement indicators
 
-This is also a place for the budgeted question-by-question analysis mentioned at the beginning on this document. 
+This is also a place for the budgeted question-by-question analysis mentioned at the beginning on this document.

@@ -3,13 +3,7 @@ layout: default
 title: PALS Research Lab
 nav: home
 description: Advancing theory and practice in AI for Psychiatry
-show_sponsors: true
 ---
-{% comment %}
-  Hero photo: drop a full-bleed image at /images/lab-hero.jpg to activate.
-  Until then, the Hopkins blue gradient fallback is shown.
-{% endcomment %}
-
 <section class="home-hero reveal">
   <div class="container home-hero-inner">
     <h1 class="home-hero-title">PALS Research Lab</h1>
@@ -32,38 +26,94 @@ show_sponsors: true
   <div class="container mission-inner">
     <p class="column-label">Our Mission</p>
     <p class="mission-statement">
-      Psychiatric care depends on evidence that arrives in time to act on. We build AI systems and
-      statistical methods that make that evidence available to patients, clinicians, and hospitals,
-      and we hold those systems to clinical standards of rigor before they reach anyone's care.
+      From computer science theory and systems to clinical applications and policy, we develop the methods and build the infrastructure needed to make AI in mental health and psychiatry safe, adaptive, and accountable in the real world.
+
     </p>
     <p class="mission-support">
-      That means designing methods alongside the clinicians who would use them, and treating
+      That means designing methods alongside the clinicians who would use them, and having
       evaluation as part of the research rather than an afterthought.
     </p>
   </div>
 </section>
 
-<section id="projects" class="section projects-section reveal">
+<section id="demos" class="section demo-showcase-section reveal">
   <div class="container">
-    <div class="section-header">
-      <h2>Research</h2>
-      <a href="/research" class="section-link">View research &rarr;</a>
+    <div class="demo-showcase-heading">
+      <div>
+        <h2>Live Systems</h2>
+      </div>
+
+      <p>Explore research systems developed by the PALS Lab.</p>
     </div>
-    <div class="projects-grid">
-      {% assign projects_sorted = site.projects | sort: "rank" %}
-      {% for project in projects_sorted %}
-      <a href="{{ project.url }}" class="project-card project-card-link">
-        {% if project.graphic %}
-        <span class="project-card-media">
-          <img src="/images/research/{{ project.graphic }}" alt="" aria-hidden="true"
-               loading="lazy" decoding="async" />
-        </span>
-        {% endif %}
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-        <span class="project-card-cta">Learn more &rarr;</span>
+
+    <div class="demo-showcase-grid">
+      <a
+        class="demo-showcase-card"
+        href="https://phippsbot-research.pals-lab.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the PhippsBot research system in a new tab"
+      >
+        <div class="demo-showcase-image">
+          <img
+            src="{{ '/images/demos/phipps_bot.png' | relative_url }}"
+            alt="PhippsBot psychiatric-intake research interface"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="demo-showcase-content">
+          <span class="demo-showcase-label">
+            Interactive research environment
+          </span>
+
+          <h3>PhippsBot</h3>
+
+          <p>
+            A simulated psychiatric-intake environment for studying and
+            evaluating patient-facing AI agents.
+          </p>
+
+          <span class="demo-showcase-link">
+            Open live system <span aria-hidden="true">↗</span>
+          </span>
+        </div>
       </a>
-      {% endfor %}
+
+      <a
+        class="demo-showcase-card"
+        href="https://navigator.pals-lab.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the NAVIGATOR research system in a new tab"
+      >
+        <div class="demo-showcase-image">
+          <img
+            src="{{ '/images/demos/navigator.png' | relative_url }}"
+            alt="NAVIGATOR behavioral-health AI auditing interface"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="demo-showcase-content">
+          <span class="demo-showcase-label">
+            Behavioral-health AI auditing
+          </span>
+
+          <h3>NAVIGATOR</h3>
+
+          <p>
+            Continuous dataset auditing, model-disagreement analysis, and
+            expert escalation for behavioral-health LLM safety.
+          </p>
+
+          <span class="demo-showcase-link">
+            Open live system <span aria-hidden="true">↗</span>
+          </span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -87,6 +137,44 @@ show_sponsors: true
         </div>
       </article>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="principal-investigator" class="section pi-feature-section reveal" aria-labelledby="pi-feature-title">
+  <div class="container">
+    <div class="pi-feature">
+      <img
+        class="pi-feature-image"
+        src="{{ '/images/about_pi.png' | relative_url }}"
+        alt="Ananya A. Joshi at the Johns Hopkins historical timeline wall"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="pi-feature-content">
+        <p class="pi-feature-label">Principal Investigator</p>
+        <h2 id="pi-feature-title">Ananya A. Joshi</h2>
+        <p class="pi-feature-role">Assistant Professor of Psychiatry &amp; Behavioral Sciences and Computer Science</p>
+        <p class="pi-feature-summary pi-description">
+          Ananya founded the PALS Research Lab to close the gap between rapid advances in AI
+          and what psychiatric care can safely and reliably use in practice. She earned her
+          Ph.D. and M.S. in Computer Science from Carnegie Mellon University as an NSF Graduate
+          Research Fellow, and her B.S.E. in Computer Science from Princeton University.
+        </p>
+
+        <div class="pi-feature-affiliations" aria-label="Affiliations">
+          <a href="https://www.hopkinsmedicine.org/inhealth/mood-disorders" target="_blank" rel="noopener noreferrer">Precision Medicine Center for Mood Disorders</a>
+          <span aria-hidden="true">&bull;</span>
+          <a href="https://hbhi.jhu.edu/" target="_blank" rel="noopener noreferrer">Hopkins Business of Health Initiative</a>
+          <span aria-hidden="true">&bull;</span>
+          <a href="https://ai.jhu.edu/" target="_blank" rel="noopener noreferrer">Data Science and AI Institute</a>
+        </div>
+
+        <a class="pi-feature-link" href="{{ '/people' | relative_url }}">
+          Meet the PALS team <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

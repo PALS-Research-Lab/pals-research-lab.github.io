@@ -389,7 +389,7 @@ Refer to bottom half of file.
 
         Statistical models - File upload
 
-Final Phippsbot Analysis Plan.pdf <https://osf.io/project/54xej/files/
+Final PhippsBot Analysis Plan.pdf <https://osf.io/project/54xej/files/
 osfstorage/6a5fb1e8b957c8669996a470>
 
 
@@ -482,7 +482,7 @@ No data
       Contributors
 
 Zhihan Shi, <https://osf.io/user/9zvp6>
-Ananya Joshi <https://osf.io/user/gca8b>
+Ananya A. Joshi <https://osf.io/user/gca8b>
 
 
       Resource type
@@ -585,13 +585,13 @@ doi.org/10.17605/OSF.IO/54XEJ
 
       MLA
 
-Shi, Zhihan, and Ananya Joshi. “Comparing Clinician and LLM Performances
+Shi, Zhihan, and Ananya A. Joshi. “Comparing Clinician and LLM Performances
 in Simulated Psychiatric Intake Interviews.” OSF, 21 July 2026. Web.
 
 
       Chicago
 
-Shi, Zhihan, and Ananya Joshi. 2026. “Comparing Clinician and LLM
+Shi, Zhihan, and Ananya A. Joshi. 2026. “Comparing Clinician and LLM
 Performances in Simulated Psychiatric Intake Interviews.” OSF. July 21.
 doi:10.17605/OSF.IO/54XEJ.
 

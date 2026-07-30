@@ -1,12 +1,3 @@
-{% comment %}
-  One person card. Params:
-    person      : a document from the `people` collection (required)
-    extra_class : optional extra class on the card, for callers that need a
-                  styling or scripting hook. Unused at present.
-
-  Falls back to auto-generated initials when `photo` is missing, and renders the
-  optional `topics` (research interests) and `now` (alumni destination) lines.
-{% endcomment %}
 <div class="person-card {{ include.extra_class }}">
   {% if include.person.photo and include.person.photo != empty %}
     <img src="/images/people/{{ include.person.photo }}"

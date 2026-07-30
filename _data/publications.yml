@@ -2,30 +2,51 @@
 #
 # /publications renders every entry, grouped by `year` (newest first). Research
 # area pages render the subset whose `area` matches their page slug, so a paper
-# is only ever written down once — do NOT also add it to a project's front
-# matter.
+# is only ever written down once.
 #
-# Fields
-#   title    required.
-#   authors  required. Lab members first as they appear on the paper.
-#   venue    required. Where it appeared ("arXiv", "IAAI 2026", a workshop).
-#   year     required. Used for grouping.
-#   date     required. ISO YYYY-MM-DD, used for ordering within a year. Use the
-#            submission or acceptance date when the exact date is unknown.
-#   type     required. paper | workshop | preprint | tutorial. Drives the badge.
-#   area     optional. A project slug (ai-systems-agents,
-#            evaluation-experimental-design, statistical-monitoring). Entries
-#            without one appear on /publications only.
-#   link     optional. External URL (arXiv, proceedings). Preferred.
-#   file     optional. A file in images/papers/, used only when there is no link.
-#   summary  optional. One or two plain sentences for the publications page.
+# Award and recognition emojis are included in `venue`, so no template changes
+# are required.
+
+- title: Precision Medicine for Mood Disorders in the Big Data Era
+  authors: Ananya A. Joshi, Clio Eva Franklin, Michael Johnathan Charles Bray, Roy Adams, Kevin Li, Jacob Taylor, Fernando Goes, Peter Zandi, James Potash
+  venue: International Review of Psychiatry
+  year: 2026
+  date: 2026-08-22
+  type: paper
+  link: https://doi.org/10.1080/09540261.2026.2717216
+
+- title: "Generative AI in Healthcare: Temporal Data Analysis and Sequential Decision-Making"
+  authors: Kai Wang, Alexander Rodríguez, Ananya A. Joshi, Aparna Taneja
+  venue: ACM SIGKDD 2026 Tutorial
+  year: 2026
+  date: 2026-08-10
+  type: tutorial
+  link: https://doi.org/10.1145/3770855.3816465
+
+- title: Ranking Anomalous Subsequences in Large Scale Streaming Data for Efficient Triage
+  authors: Ananya A. Joshi, Nolan Gormley, Tina Townes, Richa Gadgil, Catalina Vajiac, Bryan Wilder
+  venue: ACM SIGKDD 2026, Applied Data Science Track
+  year: 2026
+  date: 2026-08-09
+  type: paper
+  area: statistical-monitoring
+  link: https://doi.org/10.1145/3770855.3818465
+
+- title: "Reducing Alert Fatigue Through AI Ranking: A Deployed Public Health Data Monitoring System"
+  authors: Ananya A. Joshi, Nolan Gormley, Richa Gadgil, Catalina Vajiac, Tina Townes, Roni Rosenfeld, Bryan Wilder
+  venue: "AI Magazine 47(3) — ⭐ AAAI feature"
+  year: 2026
+  date: 2026-08-05
+  type: paper
+  area: statistical-monitoring
+  link: https://doi.org/10.1002/aaai.70081
 
 - title: Context-Aware Hospitalization Forecasting Evaluations for Decision Support using LLMs
-  authors: Rhea Makkuni, Ananya Joshi
-  venue: arXiv
+  authors: Rhea Makkuni, Ananya A. Joshi
+  venue: "epiDAMIK, MILETS, and SciSoc Agents & LLMs Workshops at KDD 2026, and  KDD 2026 Undergraduate Consortium — 🏆 Rhea Makkuni won the Best Presentation Award"
   year: 2026
   date: 2026-04-27
-  type: preprint
+  type: workshop
   area: statistical-monitoring
   link: https://arxiv.org/abs/2604.23949
   summary: >-
@@ -34,11 +55,11 @@
     inside structured models rather than as standalone forecasters.
 
 - title: Reliable Self-Harm Risk Screening via Adaptive Multi-Agent LLM Systems
-  authors: Meghana Karnam, Ananya Joshi
-  venue: arXiv
+  authors: Meghana Karnam, Ananya A. Joshi
+  venue: International Workshop on AI for Cognitive and Mental Health Support (AI4Mental) at KDD 2026
   year: 2026
   date: 2026-04-24
-  type: preprint
+  type: workshop
   area: statistical-monitoring
   link: https://arxiv.org/abs/2604.22154
   summary: >-
@@ -47,11 +68,11 @@
     models without a matching rise in false negatives.
 
 - title: Optimal Question Selection from a Large Question Bank for Clinical Field Recovery in Conversational Psychiatric Intake
-  authors: Guan Gui, Peter Zandi, Jacob Taylor, Ananya Joshi
-  venue: arXiv
+  authors: Guan Gui, Peter Zandi, Jacob Taylor, Ananya A. Joshi
+  venue: International Workshop on AI for Cognitive and Mental Health Support (AI4Mental) at KDD 2026
   year: 2026
   date: 2026-04-23
-  type: preprint
+  type: workshop
   area: ai-systems-agents
   link: https://arxiv.org/abs/2604.22067
   summary: >-
@@ -60,11 +81,11 @@
     or fixed-form questioning, especially when patients are less forthcoming.
 
 - title: "Reliability Auditing for Downstream LLM Tasks in Psychiatry: LLM-Generated Hospitalization Risk Scores"
-  authors: Shevya Panda, Shinjini Bose, Ananya Joshi
-  venue: arXiv
+  authors: Shevya Panda, Shinjini Bose, Ananya A. Joshi
+  venue: International Workshop on AI for Cognitive and Mental Health Support (AI4Mental) at KDD 2026
   year: 2026
   date: 2026-04-23
-  type: preprint
+  type: workshop
   area: evaluation-experimental-design
   link: https://arxiv.org/abs/2604.22063
   summary: >-
@@ -72,26 +93,17 @@
     framings, showing that clinically insignificant changes to context shift
     predicted hospitalization risk.
 
-- title: Auditing Generative AI Benchmarks with a Multi-Agent Compliance System
-  authors: Ananya Joshi, Michael Rudow
-  venue: AAAI Workshop on Agentic AI Benchmarks and Applications for Enterprise Tasks
+- title: "Reducing Alert Fatigue Through AI Ranking: A Deployed Public Health Data Monitoring System"
+  authors: Ananya A. Joshi, Nolan Gormley, Richa Gadgil, Catalina Vajiac, Tina Townes, Roni Rosenfeld, Bryan Wilder
+  venue: "IAAI 2026 — 🏆 Deployed Application Award"
   year: 2026
-  date: 2025-11-17
-  type: workshop
+  date: 2026-03-14
+  type: paper
   area: statistical-monitoring
-
-- title: Constrained Process Maps for Multi-Agent Generative AI Workflows
-  authors: Ananya Joshi, Michael Rudow
-  venue: AAAI Workshop on Foundations of Agentic Systems Theory
-  year: 2026
-  date: 2025-11-11
-  type: workshop
-  area: statistical-monitoring
-  summary: >-
-    Used to audit open-source benchmarks on mental health and self-harm topics.
+  link: https://doi.org/10.1609/aaai.v40i47.41435
 
 - title: "Decomposing Theory of Mind: How Emotional Processing Mediates ToM Abilities in LLMs"
-  authors: Ivan Chulo, Ananya Joshi
+  authors: Ivan Chulo, Ananya A. Joshi
   venue: AAAI Workshop on Advancing AI through Theory of Mind
   year: 2026
   date: 2025-11-18
@@ -102,17 +114,28 @@
     Finds that gains on belief-attribution tasks track patterns matching
     emotional processing rather than logical reasoning.
 
+- title: Auditing Generative AI Benchmarks with a Multi-Agent Compliance System
+  authors: Ananya A. Joshi, Michael Rudow
+  venue: AAAI Workshop on Agentic AI Benchmarks and Applications for Enterprise Tasks
+  year: 2026
+  date: 2025-11-17
+  type: workshop
+  area: statistical-monitoring
+
+- title: Constrained Process Maps for Multi-Agent Generative AI Workflows
+  authors: Ananya A. Joshi, Michael Rudow
+  venue: AAAI Workshop on Foundations of Agentic Systems Theory
+  year: 2026
+  date: 2025-11-11
+  type: workshop
+  area: statistical-monitoring
+  link: https://arxiv.org/abs/2602.02034
+  summary: >-
+    Used to audit open-source benchmarks on mental health and self-harm topics.
+
 - title: "Generative AI in Healthcare: Causality, Decision, and Real-world Case Study"
-  authors: With collaborators
-  venue: AAAI Tutorial
+  authors: Kai Wang, Alexander Rodríguez, Ananya A. Joshi, Aparna Taneja
+  venue: AAAI 2026 Tutorial
   year: 2026
   date: 2025-11-01
   type: tutorial
-
-- title: "Reducing Alert Fatigue Through AI Ranking: A Deployed Public Health Data Monitoring System"
-  authors: With the CMU Delphi Group
-  venue: IAAI
-  year: 2026
-  date: 2025-11-01
-  type: paper
-  area: statistical-monitoring
