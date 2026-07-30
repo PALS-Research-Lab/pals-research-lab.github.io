@@ -1,0 +1,628 @@
+OSF Logo
+/
+
+/
+
+Home <https://osf.io/>Home <https://osf.io/>
+
+/
+
+/
+
+Search OSF <https://osf.io/search>Search OSF <https://osf.io/search>
+
+/
+
+/
+
+Support
+
+/
+
+/
+
+Registries
+/
+
+/
+
+      o
+        Discover <https://osf.io/registries/discover>
+      o
+        /
+
+        /
+
+        Registry Details
+        /
+
+        /
+
+          +
+            Overview <https://osf.io/54xej/overview>
+          +
+            Metadata <https://osf.io/54xej/metadata>
+          +
+            Files <https://osf.io/54xej/files>
+          +
+            Resources <https://osf.io/54xej/resources>
+          +
+            Wiki <https://osf.io/54xej/wiki>
+          +
+            Components <https://osf.io/54xej/components>
+          +
+            Links <https://osf.io/54xej/links>
+          +
+            Analytics <https://osf.io/54xej/analytics>
+          +
+            Recent Activity <https://osf.io/54xej/recent-activity>
+
+/
+
+/
+
+Preprints
+/
+
+/
+
+      o
+        Discover <https://osf.io/preprints/discover>
+
+/
+
+/
+
+Meetings <https://osf.io/meetings>Meetings <https://osf.io/meetings>
+
+/
+
+/
+
+Institutions <https://osf.io/institutions>Institutions <https://osf.io/
+institutions>
+
+/
+
+/
+
+Donate
+
+/
+
+/
+
+Sign in
+
+/
+
+/
+
+/
+
+54xej / overview
+
+Sign in
+
+
+  Comparing Clinician and LLM Performances in Simulated Psychiatric
+  Intake Interviews
+
+/
+
+/
+
+Data
+
+<https://osf.io/54xej/resources>
+/
+
+/
+
+Analytic Code
+
+<https://osf.io/54xej/resources>
+/
+
+/
+
+Materials
+
+<https://osf.io/54xej/resources>
+/
+
+/
+
+Papers
+
+<https://osf.io/54xej/resources>
+/
+
+/
+
+Supplements
+
+<https://osf.io/54xej/resources>
+
+Public registration
+
+
+      Public
+
+This public registration is a frozen, non-editable version of this
+project <https://osf.io/wd2u3>.
+
+Updates
+
+Original
+
+
+    Overview
+
+
+        Research questions or hypotheses
+
+Research Question: How do psychiatrists and LLMs differ in their conversations during psychiatric intake, and how do these differences influence clinical information gathering and interview quality?
+
+
+        Foreknowledge of data or evidence
+
+Data does not yet exist. No part of the data that will be used for this analysis plan exists, and no part will be generated until after this plan is registered.
+
+
+        Explanation of foreknowledge and managing unintended influences
+
+No data
+
+
+    Research Design
+
+
+        Study type
+
+Simulation study: Using existing or synthetic data to assess performance of a model, mimic operation of an existing or proposed system, or predict possible outcomes in a controlled context. This may include demonstration of methods, many varieties of modeling, prediction of policy impacts, simulating behavior or outcomes in a population, and other designs.
+
+
+        Intention for causal interpretation
+
+Indirect inference on causal relationship(s): This study is intended to examine a potential causal relationship, but is not designed to isolate the specific causal effect. This work may inform causal inference indirectly or advance insight toward future estimation of a causal relationship. 
+
+
+        Blinding of experimental treatments
+
+No blinding is involved.
+
+
+        Additional blinding during research or analysis
+
+Coding will be conducted by independent raters who are blinded to interviewer type (clinician vs LLM). Transcripts will be anonymized by removing identifying information and standardizing formatting to minimize distinguishing features between human and LLM-generated text. Raters will code empathy dimensions (emotional validation, reflective listening, rapport building, patient-centered language) without knowledge of which condition produced the transcript. 
+
+Quantitative analyses (information coverage, safety identification, question counts) rely on objective scoring against predefined ground truth and do not require blinding, as outcomes are determined by matching transcript content to established criteria rather than subjective interpretation
+
+
+        Study design
+
+We will be providing clinicians with links to our website (Github Hash: 4697f6d1142d69e8a352df279cdc4af89c829420) for data collection. They will first complete the consent form and fill out their name/affiliation. The experiment consists of one short in-app tutorial and one 20-minute simulated psychiatric intake session. The psychiatrist will receive 1 vignette at random from a pool of 3. They will see a brief vignette description, and will be given the full time to talk to the simulated patient. After the time limit, or if the clinician concludes the intake, they will be brought to a recall form screen. They will complete an open-response form about the intake, a likert-scale recall form, and a feedback survey.  
+
+After all the clinician data, we will run LLM models on the same tool and vignettes. We will limit the LLM to the mean clinician interview duration. We will also consider doing other budgeted analysis on the LLM data, like a question-by-question analysis. 
+
+
+No files selected
+
+
+        Randomization
+
+No data
+
+
+    Sampling
+
+
+        Data collection procedures
+
+Participants will be psychiatrists with experience conducting psychiatric intake. Participants will be recruited through professional networks, academic medical centers, and departmental listservs. Convenience sampling will be used given the specialized population.
+
+Inclusion Criteria:
+    Licensed or in-training mental health clinician
+    Experience conducting psychiatric intake interviews
+    Comfortable with text-based communication
+    English fluency
+
+Exclusion Criteria (Participation):
+    No clinical experience with psychiatric interviewing
+
+Exclusion Criteria (Analysis)
+Sessions will be excluded from analysis if:
+    Fewer than 5 interviewer messages sent
+    Trap question failed (incorrect response to verifiable ground truth item)
+
+Expected Sample Size
+Target: 12 clinicians (pilot study)
+
+Duration of Data Collection
+Approximately 2-3 weeks
+
+
+        Data collection procedures - File upload
+
+No files selected
+
+
+        Sample size
+
+We are aiming to get at least 12 responses from clinicians. 
+
+
+        Sample size rationale
+
+No data
+
+
+        Starting and stopping rules
+
+We will end data collection when the time period is up.
+
+
+    Variables
+
+
+        Manipulated variables
+
+None.
+
+
+No files selected
+
+
+        Measured variables
+
+Outcome Measures
+
+Information Gathering
+    Coverage accuracy: Proportion of ground truth items discussed in interview
+    Precision accuracy: Proportion of recalled items that are correct (excluding "uncertain" responses)
+    False confidence rate: Incorrect "yes" responses on undiscussed topics / total undiscussed topics
+    Coverage by psychiatric domain (chief complaint, psychiatric history, family history, social history, substance use, functional impairment)
+
+Safety Assessment
+    Safety sensitivity: Identified concerns / total embedded concerns
+    Safety specificity: Correct "no concern" / total cases without that concern
+    Missed safety concerns (count)
+    False positive safety identifications (count)
+
+Recall Performance
+    Overall recall accuracy
+    Recall accuracy by psychiatric domain
+    Recall completion time (seconds)
+
+Question Formulation
+    Total question count
+    Open vs closed question ratio
+    Follow-up question count
+    Clarification question count
+    Question density (questions per minute)
+
+Engagement Variables
+    Interview duration (seconds)
+    Message count (total, interviewer only)
+    Average interviewer message length (words)
+    Follow-up question count
+
+Variables for Exclusion Criteria
+    Interviewer message count (exclude if less than 5)
+    Trap question response (exclude if failed)
+
+
+        Measured variables - File upload
+
+No files selected
+
+
+        Indices
+
+Accuracy Indices
+
+Coverage Accuracy
+Formula: Correct responses / Total ground truth items
+    Correct response: Recalled value matches ground truth
+    Total ground truth items: Number of scorable fields in patient vignette
+
+Precision Accuracy
+Formula: Correct responses / (Correct responses + Incorrect responses)
+    Excludes "uncertain" responses (Likert = 3)
+    Measures accuracy when clinician commits to an answer
+
+False Confidence Rate
+Formula: Incorrect "yes" responses on undiscussed topics / Total undiscussed topics
+    Undiscussed topic: Ground truth indicates information was not revealed in interview
+    Incorrect "yes": Clinician indicates information was present when it was not discussed
+
+Normalized Accuracy
+
+Accuracy per 100 Patient Words
+Formula: (Accuracy score / Patient word count) × 100
+    Applied to coverage and precision scores
+    Addresses potential confound of conversation length
+
+Engagement Indices
+
+Question Density
+Formula: Total interviewer questions / Interview duration in minutes
+
+Open Question Ratio
+Formula: Open-ended questions / Total questions
+
+Follow-up Ratio
+Formula: Follow-up questions / Total questions
+
+Safety Assessment Indices
+
+Safety Sensitivity
+Formula: Correctly identified safety concerns / Total embedded safety concerns
+
+Safety Specificity
+Formula: Correct "no concern" responses / Total cases without that specific concern
+
+Recall Indices
+
+Domain-Specific Recall Accuracy
+Formula: Correct responses within domain / Total ground truth items within domain
+Calculated separately for each psychiatric domain (chief complaint, psychiatric history, family history, social history, substance use, functional impairment)
+
+Exclusion Indices
+Trap Question Pass/Fail
+    Binary: Correct response to embedded verifiable item = pass; incorrect = fail
+
+
+        Indices - File upload
+
+No files selected
+
+
+    Analysis Plan
+
+
+        Statistical models
+
+Refer to bottom half of file. 
+
+
+        Statistical models - File upload
+
+Final Phippsbot Analysis Plan.pdf <https://osf.io/project/54xej/files/
+osfstorage/6a5fb1e8b957c8669996a470>
+
+
+        Transformations
+
+Categorical Variables
+
+Interviewer Type
+    Clinician = 0
+    LLM = 1
+
+Interview Order
+    First interview = 0
+    Second interview = 1
+
+Recall Likert Responses
+    Original scale: 1 (Definitely No) to 5 (Definitely Yes)
+    For accuracy coding: 1-2 = "No", 3 = "Uncertain", 4-5 = "Yes"
+    Uncertain responses excluded from precision calculations
+
+Question Type Classification
+    Open-ended = 1, Closed-ended = 0
+    Follow-up = 1, Initial question = 0
+
+
+        Inference criteria
+
+Statistical Tests
+
+All tests will be two-tailed unless otherwise specified.
+
+Primary Comparisons 
+    Mann-Whitney U tests for continuous outcomes
+    Fisher's exact test for categorical outcomes (safety identification)
+    Alpha level: p; 0.05
+    Effect sizes reported for all comparisons:
+        Rank-biserial correlation (r) for Mann-Whitney U
+        Odds ratio with 95% CI for Fisher's exact
+
+
+        Data inclusion and exclusion
+
+Inclusion Criteria
+
+All completed sessions meeting the following criteria will be included:
+    Clinician provided informed consent
+    At least one interview completed
+    Recall form submitted
+
+Exclusion Criteria
+Sessions will be excluded from analysis if any of the following apply:
+
+
+        Missing data
+
+Item-Level Missing Data
+    Recall form: All items are not optional, so form cannot be submitted with missing data. If the form is not completed, we will not use the data or have access to it. 
+    Engagement variables: Calculated from available data; missing timestamps will result in exclusion of timing-dependent variables for that session only
+
+Session-Level Missing Data
+    If recall form not submitted, session excluded from recall analyses
+    If interview terminated early but recall completed, session included with actual duration noted
+
+Approach
+    Complete case analysis will be used (no imputation)
+    Sample sizes reported separately for each analysis to reflect any variation due to missing data
+    Patterns of missingness will be examined and reported descriptively
+
+LLM Condition
+    No missing data expected for LLM interviews (fully automated)
+    Any technical failures resulting in incomplete LLM transcripts will be regenerated
+
+
+        Other planned analysis
+
+No data
+
+
+    Other
+
+
+        Context and additional information
+
+No data
+
+
+    Metadata
+
+
+      Contributors
+
+Zhihan Shi, <https://osf.io/user/9zvp6>
+Ananya Joshi <https://osf.io/user/gca8b>
+
+
+      Resource type
+
+No resource type
+
+
+      Description
+
+This pilot study compares the performance of human clinicians and large language models (LLMs) in conducting psychiatric intake interviews with simulated patients. Using a text-based interview platform, we examine differences in three domains: (1) clinical information gathering; (2) safety assessment; and (3) empathic communication patterns.
+
+Clinicians will complete one 20-minute intake interview with a simulated patient presenting with psychiatric concerns. LLM interviews will be time-matched to mean clinician duration to enable fair comparison. Following each interview, participants complete a recall assessment measuring retention of clinical information. Interview transcripts will be analyzed for question types, information coverage, and safety concern identification. 
+
+Primary outcomes include clinical information coverage, precision of recalled information, and safety concern detection rates. Exploratory analyses examine whether conversational engagement metrics (message count, follow-up questions) predict performance outcomes.
+Read more
+
+
+      Registration Type
+
+OSF Preregistration
+
+
+      Registry
+
+OSF Registries
+
+
+      Date Created
+
+Jul 21, 2026, 1:51 PM
+
+
+      Date registered
+
+Jul 21, 2026, 1:51 PM
+
+
+      Subjects
+
+Artificial Intelligence and Robotics
+
+Computer Sciences
+
+Medicine and Health Sciences
+
+Psychiatry and Psychology
+
+Physical Sciences and Mathematics
+
+
+      Tags
+
+No tags
+
+
+      Affiliated Institutions
+
+No affiliated institutions
+
+
+      Funder Names
+
+No information
+
+
+      Language
+
+No language
+
+
+      Associated project
+
+https://osf.io/wd2u3 <https://osf.io/wd2u3>
+
+
+      internet archive link
+
+https://archive.org/details/osf-registrations-54xej-v1
+
+
+      License
+
+CC0 1.0 Universal
+
+
+      Registration DOI
+
+10.17605/OSF.IO/54XEJ <https://doi.org/10.17605/OSF.IO/54XEJ>
+
+
+      Citation
+
+
+      APA
+
+Shi, Z., & Joshi, A. (2026, July 21). Comparing Clinician and LLM
+Performances in Simulated Psychiatric Intake Interviews. https://
+doi.org/10.17605/OSF.IO/54XEJ
+
+
+      MLA
+
+Shi, Zhihan, and Ananya Joshi. “Comparing Clinician and LLM Performances
+in Simulated Psychiatric Intake Interviews.” OSF, 21 July 2026. Web.
+
+
+      Chicago
+
+Shi, Zhihan, and Ananya Joshi. 2026. “Comparing Clinician and LLM
+Performances in Simulated Psychiatric Intake Interviews.” OSF. July 21.
+doi:10.17605/OSF.IO/54XEJ.
+
+Get More Citations
+
+Select citation style or start typing
+
+Center for Open Science <https://cos.io/>
+/
+
+/
+
+<https://github.com/centerforopenscience>
+/
+
+/
+
+<https://www.linkedin.com/company/center-for-open-science/>
+/
+
+/
+
+<https://bsky.app/profile/cos.io>
+/
+
+/
+
+<https://fosstodon.org/@CenterforOpenScience>
+Terms of Use <https://osf.io/terms-of-use>|Privacy Policy <https://
+osf.io/privacy-policy>|Status <https://status.cos.io/>|API <https://
+developer.osf.io/>|TOP Guidelines <https://www.cos.io/initiatives/top-
+guidelines>
+Copyright © 2011-2025
+

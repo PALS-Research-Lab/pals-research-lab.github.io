@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"
+     fill="none" stroke-linecap="round" stroke-linejoin="round" role="img"
+     aria-label="A monitored signal crossing an alert threshold">
+  <!-- axes -->
+  <path d="M15 13 V79 H83" stroke="#C7D2E6" stroke-width="2" />
+  <!-- alert threshold -->
+  <path d="M19 30 H80" stroke="#FFD21E" stroke-width="2.5" stroke-dasharray="6 6" />
+  <!-- baseline -->
+  <path d="M19 58 H80" stroke="#C7D2E6" stroke-width="2" stroke-dasharray="2 6" />
+  <!-- signal -->
+  <path d="M19 68 L27 60 L35 65 L43 52 L51 57 L59 45 L67 49 L75 26"
+        stroke="#12357E" stroke-width="2.5" />
+  <!-- flagged event -->
+  <circle cx="75" cy="26" r="10" fill="#FFD21E" opacity="0.28" />
+  <circle cx="75" cy="26" r="4.5" fill="#FFD21E" stroke="#12357E" stroke-width="2.5" />
+</svg>

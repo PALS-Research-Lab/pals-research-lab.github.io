@@ -1,13 +1,22 @@
 title: PALS Research Lab
-# email: your-email@example.com
+email: ajoshi34@jh.edu
 description: Advancing theory and practice in AI for Psychiatry
+# Needed by jekyll-feed: without it every link in feed.xml is emitted relative
+# ("/feed.xml"), which is invalid in an Atom feed. Must match CNAME.
+url: https://pals-lab.org
+location: "555 N. Broadway, Suite 203."
 
+# Keep post URLs stable when using category front matter
+permalink: /:year/:month/:day/:title/
 
 # COLLECTION CONFIGURATION
 collections:
   people:
-    output: false # Changed to 'false' to keep the people list only on the index page
+    output: false # Keep the people list only on the people page
     permalink: /team/:name/
+  projects:
+    output: true
+    permalink: /research/:name/
 
 # CUSTOM RELATIVE LINKS CONFIG (If still needed)
 relative_links:
@@ -21,10 +30,34 @@ kramdown:
   syntax_highlighter_opts:
     css_class: 'highlight'
   
+# WARNING: setting `exclude` REPLACES Jekyll's built-in list rather than adding
+# to it, so the defaults have to be repeated here. Dropping them would start
+# publishing Gemfile, vendor/, node_modules/ etc. to the site root.
+exclude:
+  # Jekyll defaults
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # Local tooling and notes, not site content
+  - app.py
+  - __pycache__/
+  - CLAUDE.md
+  - images/papers/README.md
+  - images/figures/README.md
+
 # FILES TO INCLUDE IN BUILD
+# NOTE: README.md is deliberately absent. `include` overrides `exclude`, so
+# listing it here re-published the contributor READMEs in images/papers/ and
+# images/figures/ no matter what `exclude` said.
 include:
   - CONTRIBUTING.md
-  - README.md
   - LICENSE.md
   - COPYING.md
   - CODE_OF_CONDUCT.md

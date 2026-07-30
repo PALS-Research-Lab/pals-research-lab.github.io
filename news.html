@@ -1,0 +1,30 @@
+---
+layout: default
+title: News
+nav: news
+---
+<main class="main">
+  <section class="section blog-archive-section reveal">
+    <div class="container">
+      <h2>News</h2>
+      <div class="updates-list">
+        {% assign news_posts = site.posts | where_exp: "post", "post.categories contains 'news'" %}
+        {% for post in news_posts %}
+        <div class="post-row">
+          <div class="post-date-column">
+            <div class="update-date">{{ post.date | date: "%b %d, %Y" }}</div>
+          </div>
+          <div class="post-content-column">
+            <h3 class="update-title">
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </h3>
+            <div class="update-preview">
+              <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>

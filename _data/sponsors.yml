@@ -1,0 +1,71 @@
+# Sponsor / supporter logos rendered in the band above the site footer.
+#
+# Files live in images/sponsors/ and have been trimmed to their ink bounds, so
+# `w`/`h` are the real logo dimensions (used to reserve space and avoid layout
+# shift) and `height` is the rendered optical height in px.
+#
+# `height` is deliberately NOT uniform. These logos range from a 6.2:1 wordmark
+# (Allegheny County) to a 1.3:1 stacked mark (NVIDIA); giving them all the same
+# height would make the wide ones dominate. Each height is set so the logos
+# occupy roughly equal visual area. If you add a logo, pick its height with
+# height ~= sqrt(3000 / aspect_ratio), then eyeball it.
+#
+# `url` is optional and blank by default -- add the correct destination and the
+# logo automatically becomes a link. Left empty because e.g. "google" could mean
+# Google Research or Google.org, which are different funders.
+
+- name: Centers for Disease Control and Prevention
+  file: CDC.png
+  w: 296
+  h: 186
+  height: 43
+  url:
+
+- name: U.S. Food and Drug Administration
+  file: FDA.png
+  w: 349
+  h: 144
+  height: 35
+  url:
+
+- name: Allegheny County
+  file: alleghenycounty.png
+  w: 938
+  h: 152
+  height: 24
+  url:
+
+- name: Council of State and Territorial Epidemiologists
+  file: cste.png
+  w: 159
+  h: 51
+  height: 31
+  url:
+
+- name: Fulbright
+  file: fulbright.png
+  w: 287
+  h: 58
+  height: 26
+  url:
+
+- name: Google
+  file: google.png
+  w: 385
+  h: 128
+  height: 32
+  url:
+
+- name: IBM
+  file: IBM.png
+  w: 324
+  h: 132
+  height: 35
+  url:
+
+- name: NVIDIA
+  file: nvidia.png
+  w: 152
+  h: 115
+  height: 46
+  url:
