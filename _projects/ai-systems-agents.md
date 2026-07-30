@@ -32,13 +32,8 @@ projects:
       patient-specific medication decisions for older adults, focusing on
       polypharmacy, mental health, and data gaps in geriatric psychiatric care.
 
-# Papers are listed newest first. `link` is an external URL (arXiv); `file`
-# points at images/papers/ and is only used when there is no `link`.
-papers:
-  - title: Adaptive Question Selection from a Large Question Bank for Field Recovery in Conversational Psychiatric Intake
-    authors: Guan Gui, Peter Zandi, Jacob Taylor, Ananya Joshi
-    venue: arXiv, 2026
-    link: https://arxiv.org/abs/2604.22067
+# Papers are NOT listed here. They live in _data/publications.yml; an entry
+# joins this page's "Selected work" by setting `area: ai-systems-agents`.
 ---
 
 Psychiatry involves complex, multi-step processes across patients, clinicians, and institutions. We develop theory and systems for multi-agent and generative AI workflows that can support those processes while remaining constrained, auditable, and aligned with clinical goals.

@@ -534,15 +534,17 @@ a {
    breaks carried by whitespace and cards rather than rules. */
 .project-hero {
   background: linear-gradient(180deg, var(--light-gray) 0%, #ffffff 100%);
-  padding: 1rem 0 2rem;
+  padding: 1rem 0 1.25rem;
 }
 
+/* Graphic kept small: it is decoration, and at 300px it pushed the first
+   project most of a screen down the page. */
 .project-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 190px);
   gap: 2.5rem;
   align-items: center;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .project-hero-grid-solo {
@@ -557,7 +559,6 @@ a {
 
 .project-hero-lead {
   margin: 0.85rem 0 0;
-  max-width: 62ch;
   color: #4a4a4a;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -583,16 +584,12 @@ a {
 }
 
 .project-detail-body {
-  padding-top: 0.5rem;
-}
-
-.project-intro {
-  max-width: 72ch;
+  padding-top: 0;
 }
 
 /* Individual projects listed under a research area. */
 .project-threads {
-  margin-top: 2.75rem;
+  margin-top: 2rem;
 }
 
 .project-threads-title {
@@ -661,7 +658,12 @@ a {
 
 .thread-body {
   min-width: 0;
-  max-width: 62ch;
+}
+
+/* A text-only card left alone on its row would strand half the width, so it
+   spans instead. Set in the template, which knows whether the count is odd. */
+.thread-wide {
+  grid-column: 1 / -1;
 }
 
 .thread-name {
@@ -719,6 +721,17 @@ a {
 /* Selected papers under a research area. */
 .project-papers {
   margin-top: 2.75rem;
+}
+
+.project-papers-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-papers-header .project-threads-title {
+  margin-bottom: 1.25rem;
 }
 
 .paper-list {
@@ -796,6 +809,136 @@ a {
 
 .project-back {
   margin-top: 2.5rem;
+}
+
+/* ── Publications ── */
+.pub-year {
+  margin-top: 2rem;
+}
+
+.pub-year:first-child {
+  margin-top: 0.5rem;
+}
+
+.pub-year-title {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--hopkins-gold);
+  font-size: 1.35rem;
+}
+
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Title block left, venue rail right. The rail is fixed-width so the badges
+   line up down the page rather than tracking each title's length. */
+.pub {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 1.5rem;
+  align-items: start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.pub:hover {
+  box-shadow: var(--card-shadow);
+}
+
+.pub-title {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.pub-title a {
+  color: var(--hopkins-blue);
+}
+
+.pub-title a:hover {
+  text-decoration: underline;
+}
+
+.pub-authors {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.pub-summary {
+  margin: 0.55rem 0 0;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.pub-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.pub-type {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pub-type-paper {
+  background: var(--hopkins-blue);
+  color: white;
+}
+
+.pub-type-workshop {
+  background: #e6ecf8;
+  color: var(--hopkins-blue);
+}
+
+.pub-type-preprint {
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  color: #555;
+}
+
+.pub-type-tutorial {
+  background: var(--hopkins-gold);
+  color: var(--hopkins-blue);
+}
+
+.pub-venue {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .pub {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  /* Badge and venue above the title on narrow screens, so the title stays the
+     first thing read. */
+  .pub-meta {
+    order: -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+  }
 }
 
 /* ── News list (home + archives) ── */

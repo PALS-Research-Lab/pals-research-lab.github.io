@@ -39,9 +39,19 @@ layout: default
       {% if page.projects and page.projects.size > 0 %}
       <section class="project-threads">
         <h2 class="project-threads-title">Projects in this area</h2>
+        {% comment %}
+          Text-only cards pair up 2-across. If there is an odd number of them
+          the last one would sit alone in half a row, so it is widened to span
+          instead — matching the full-width cards that carry a figure.
+        {% endcomment %}
+        {% assign text_only = page.projects | where_exp: "t", "t.figure == nil" %}
+        {% assign remainder = text_only.size | modulo: 2 %}
+        {% if remainder == 1 %}
+          {% assign solo = text_only | last %}
+        {% endif %}
         <ul class="thread-list">
           {% for thread in page.projects %}
-          <li class="thread{% if thread.figure and thread.figure != empty %} thread-has-figure{% endif %}">
+          <li class="thread{% if thread.figure and thread.figure != empty %} thread-has-figure{% elsif solo and thread.name == solo.name %} thread-wide{% endif %}">
             {% if thread.figure and thread.figure != empty %}
             <div class="thread-figure">
               <img src="/images/figures/{{ thread.figure }}" alt="" aria-hidden="true" loading="lazy" />
@@ -79,11 +89,20 @@ layout: default
       </section>
       {% endif %}
 
-      {% if page.papers and page.papers.size > 0 %}
+      {% comment %}
+        Papers live in _data/publications.yml, not in this page's front matter,
+        so /publications and the research pages can never disagree. An entry
+        joins this list by setting `area:` to this page's slug.
+      {% endcomment %}
+      {% assign area_papers = site.data.publications | where: "area", page.slug | sort: "date" | reverse %}
+      {% if area_papers.size > 0 %}
       <section class="project-papers">
-        <h2 class="project-threads-title">Selected work</h2>
+        <div class="project-papers-header">
+          <h2 class="project-threads-title">Selected work</h2>
+          <a href="/publications" class="section-link">All publications &rarr;</a>
+        </div>
         <ul class="paper-list">
-          {% for paper in page.papers %}
+          {% for paper in area_papers %}
           <li class="paper">
             <h3 class="paper-title">
               {% if paper.link and paper.link != empty %}
@@ -95,7 +114,7 @@ layout: default
               {% endif %}
             </h3>
             <p class="paper-meta">
-              {{ paper.authors }}{% if paper.venue and paper.venue != empty %} &middot; {{ paper.venue }}{% endif %}
+              {{ paper.authors }}{% if paper.venue and paper.venue != empty %} &middot; {{ paper.venue }}, {{ paper.year }}{% endif %}
             </p>
           </li>
           {% endfor %}
