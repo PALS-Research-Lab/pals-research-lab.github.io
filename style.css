@@ -1,5 +1,5 @@
 :root {
-  --hopkins-blue: #002D72;
+  --hopkins-blue: #12005A;
   --hopkins-gold: #FFD100;
   --light-gray: #f7f9fc;
   --dark-gray: #333;
@@ -50,7 +50,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(135deg, #002d72, #0048a5);
+  background: linear-gradient(135deg, #12005A, #0048a5);
   color: white;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
@@ -246,7 +246,7 @@ a {
   padding: 3.25rem 0;
   background-color: var(--hopkins-blue);
   background-image:
-    linear-gradient(135deg, rgba(0, 45, 114, 0.92), rgba(0, 72, 165, 0.82)),
+    linear-gradient(135deg, rgba(18, 0, 90, 0.92), rgba(0, 72, 165, 0.82)),
     url("/images/lab-hero.jpg");
   background-size: cover;
   background-position: center;
@@ -844,7 +844,7 @@ a {
 .contact-email {
   color: var(--hopkins-blue);
   font-weight: 600;
-  border-bottom: 1px solid rgba(0, 45, 114, 0.3);
+  border-bottom: 1px solid rgba(18, 0, 90, 0.3);
 }
 
 .contact-email:hover {
@@ -1266,9 +1266,12 @@ a {
 }
 
 /* Bottom logo bar: JHU | copyright | PALS */
+/* #0C0253 is sampled from pals_footer.png, which bakes in an opaque background
+   rather than shipping transparent. Matching the bar to it exactly is what stops
+   the logo reading as a pasted-on rectangle. */
 .footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: #001a4a;
+  background: #0C0253;
   padding: 1.25rem 0;
 }
 
@@ -1289,19 +1292,18 @@ a {
   justify-self: start;
 }
 
-/* Both footer logos are stacked lockups (JHU 1.64:1, PALS 0.95:1) rather than
-   horizontal wordmarks, so their text sits in a fraction of the overall height.
-   At 52px "MEDICINE" was illegible; these need more height than a wordmark
-   would to read at the same size. */
+/* SOM.png is navy ink on a transparent canvas, so it needs the white card to be
+   legible on the dark bar. It is a horizontal lockup (3.4:1), so it reads fine
+   at a smaller height than the stacked mark it replaced. */
 .footer-jhu-logo {
-  height: 68px;
+  height: 46px;
   width: auto;
   max-width: 260px;
   object-fit: contain;
   display: block;
   background: #fff;
   border-radius: 6px;
-  padding: 9px 16px;
+  padding: 8px 14px;
 }
 
 .footer-jhu-logo:not([src]),
@@ -1324,12 +1326,12 @@ a {
   justify-self: end;
 }
 
-/* Uses lablogo-transparent.png, not new-pals-logo.png: the latter bakes in an
-   opaque #0C0253 background that shows as a mismatched block on this bar. */
+/* pals_footer.png is a horizontal lockup (2.75:1) on an opaque #0C0253 field,
+   which .footer-bar is set to match. */
 .footer-pals-logo {
-  height: 66px;
+  height: 54px;
   width: auto;
-  max-width: 160px;
+  max-width: 200px;
   object-fit: contain;
   object-position: right center;
   display: block;

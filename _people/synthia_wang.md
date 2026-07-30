@@ -1,6 +1,6 @@
 ---
-name: Synthia Wang
-role: Postdoctoral Fellow
+name: Synthia Qia Wang
+role: Postdoctoral Scholar
 tier: postdoc
 photo: synthia.JPG
 topics: Phippsbot;
