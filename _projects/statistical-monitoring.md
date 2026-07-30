@@ -6,7 +6,8 @@ graphic: monitoring.svg
 rank: 1
 
 # Active projects in this area. `summary` and `people` are both optional — an
-# entry with neither still renders as a named placeholder.
+# entry with neither still renders as a named placeholder. `summary` is
+# rendered as Markdown, so it can carry inline [links](https://example.com).
 # Add `figure: <file>.png` to show something from images/figures/ alongside one.
 projects:
   - name: NAVIGATOR
@@ -29,7 +30,7 @@ projects:
       reduces human review by up to 85x.
 
   - name: Patient heterogeneity
-    people: Rhea Makkuni, Ram Chitti
+    people: Rhea Makkuni, Ram Chitti, Minseo Choi
     summary: >-
       Why individuals sharing a psychiatric diagnosis can differ in their
       underlying pathology and treatment trajectories, and how computational
@@ -45,27 +46,18 @@ projects:
       adaptive sampling, and regret guarantees, cutting the false positive rate
       by 40% against single-agent models without losing recall.
 
-  - name: Hospitalization forecasting for decision support
-    people: Rhea Makkuni
-    summary: >-
-      Public health experts must make real-time resource decisions, such as
-      expanding hospital bed capacity, from projected hospitalization trends.
-      We evaluate direct LLM forecasting, classical time-series models, and a
-      context-augmented hybrid across 60 US counties, judging them on bias and
-      lead-lag alignment rather than error alone, because the goal is
-      operational decision-making.
-
-# Papers are listed newest first. `file` points at images/papers/.
+# Papers are listed newest first. `link` is an external URL (arXiv); `file`
+# points at images/papers/ and is only used when there is no `link`.
 papers:
   - title: "Context-Aware Hospitalization Forecasting Evaluations for Decision Support using LLMs"
     authors: Rhea Makkuni, Ananya Joshi
     venue: arXiv, 2026
-    file: makkuni-arxiv-2026.pdf
+    link: https://arxiv.org/abs/2604.23949
 
   - title: Reliable Self-Harm Risk Screening via Adaptive Multi-Agent LLM Systems
     authors: Meghana Karnam, Ananya Joshi
     venue: arXiv, 2026
-    file: karnam-arxiv-2026.pdf
+    link: https://arxiv.org/abs/2604.22154
 ---
 
 Clinical psychiatry depends on timely detection of change: relapse risk, treatment response, and other events that matter for patient care. Our work builds measurement frameworks and monitoring methods that can surface these signals reliably from real-world data streams.

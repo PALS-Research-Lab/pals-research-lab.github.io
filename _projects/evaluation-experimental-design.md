@@ -6,7 +6,8 @@ graphic: evaluation.svg
 rank: 3
 
 # Active projects in this area. `summary` and `people` are both optional — an
-# entry with neither still renders as a named placeholder.
+# entry with neither still renders as a named placeholder. `summary` is
+# rendered as Markdown, so it can carry inline [links](https://example.com).
 # Add `figure: <file>.png` to show something from images/figures/ alongside one.
 projects:
   - name: Uncertainty in LLM psychiatric risk assessments
@@ -18,15 +19,6 @@ projects:
       hospitalization risk and output variability, underscoring the need for
       governance around these models before clinical deployment.
 
-  - name: Emotion as a mediator of theory of mind in LLMs
-    people: Ivan Chulo
-    summary: >-
-      Investigating the internal mechanisms by which LLMs infer user beliefs,
-      and finding that improvements are driven by patterns matching emotional
-      processing rather than logical reasoning. These insights help explain how
-      AI systems behave when used in supportive or administrative roles in
-      behavioral health.
-
   - name: Language drift in LLM responses
     # TODO: originally described as a separate evaluation project, but drift is
     # also central to NAVIGATOR ("tuning process maps even as concepts drift").
@@ -36,12 +28,18 @@ projects:
       Detecting drift in the language of LLM responses over time, and what that
       drift implies for evaluating deployed systems.
 
-# Papers are listed newest first. `file` points at images/papers/.
+# Papers are listed newest first. `link` is an external URL (arXiv); `file`
+# points at images/papers/ and is only used when there is no `link`.
 papers:
   - title: "Reliability Auditing for Downstream LLM Tasks in Psychiatry: LLM-Generated Hospitalization Risk Scores"
     authors: Shevya Panda, Shinjini Bose, Ananya Joshi
     venue: arXiv, 2026
-    file: pandya-arxiv-2026.pdf
+    link: https://arxiv.org/abs/2604.22063
+
+  - title: "Decomposing Theory of Mind: How Emotional Processing Mediates ToM Abilities in LLMs"
+    authors: Ivan Chulo, Ananya Joshi
+    venue: arXiv, 2025
+    link: https://arxiv.org/abs/2511.15895
 ---
 
 Generative AI tools are entering psychiatry and behavioral science faster than evaluation practice can keep up. We design strategies to test these systems rigorously, covering validity, reliability, fairness across populations, and fitness for clinical or research use.
