@@ -79,7 +79,6 @@
   date: 2025-11-17
   type: workshop
   area: statistical-monitoring
-  link: https://arxiv.org/abs/2602.02034
 
 - title: Constrained Process Maps for Multi-Agent Generative AI Workflows
   authors: Ananya Joshi, Michael Rudow
@@ -88,6 +87,7 @@
   date: 2025-11-11
   type: workshop
   area: statistical-monitoring
+  link: https://arxiv.org/abs/2602.02034
   summary: >-
     Used to audit open-source benchmarks on mental health and self-harm topics.
 
@@ -111,9 +111,10 @@
   type: tutorial
 
 - title: "Reducing Alert Fatigue Through AI Ranking: A Deployed Public Health Data Monitoring System"
-  authors: With the CMU Delphi Group
+  authors: Ananya Joshi, CMU Delphi Group
   venue: IAAI
   year: 2026
   date: 2025-11-01
   type: paper
   area: statistical-monitoring
+  link: https://doi.org/10.1609/aaai.v40i47.41435 
