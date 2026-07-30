@@ -1,10 +1,12 @@
 title: PALS Research Lab
-email: ajoshi34@jh.edu
+email: support@pals-lab.org
 description: Advancing theory and practice in AI for Psychiatry
 # Needed by jekyll-feed: without it every link in feed.xml is emitted relative
 # ("/feed.xml"), which is invalid in an Atom feed. Must match CNAME.
 url: https://pals-lab.org
-location: "555 N. Broadway, Suite 203."
+# No suite number on purpose: the lab does not receive mail at one, so the
+# address is listed at building level only.
+location: "555 N. Broadway, Johns Hopkins East Baltimore Campus"
 
 # Keep post URLs stable when using category front matter
 permalink: /:year/:month/:day/:title/

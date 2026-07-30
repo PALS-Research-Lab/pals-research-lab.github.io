@@ -1149,57 +1149,30 @@ a {
   margin-bottom: 1rem;
 }
 
-/* Two columns: identity (portrait + name + role + topics) on the left, bio on
-   the right. Photo-left with everything stacked beside it left a wide empty
-   strip down the right; this fills the container and keeps the bio at a
-   readable measure instead of stretching it across the full width. */
-.pi-feature {
+/* Team columns: PI (and postdocs) in a narrow left column, students and
+   collaborators in the wide column beside it — not stacked above them. Cards
+   are the same component and size in both columns on purpose; see the layout
+   note in people.html. */
+.people-columns {
   display: grid;
-  grid-template-columns: minmax(200px, 290px) 1fr;
-  gap: 2.75rem;
+  grid-template-columns: minmax(190px, 240px) 1fr;
+  gap: 2.25rem;
   align-items: start;
-  padding: 1.5rem 0 2rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  padding-top: 0.75rem;
 }
 
-.pi-feature-media {
-  margin-bottom: 1rem;
-}
-
-.pi-feature-identity {
+.people-column {
   min-width: 0;
 }
 
-.pi-feature-bio {
-  min-width: 0;
-  color: #444;
-  line-height: 1.65;
-  font-size: 1rem;
+/* One card per row in the narrow column, so a lone PI card does not stretch to
+   twice the width of a student card. */
+.people-grid-lead {
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.pi-feature-bio p {
-  margin: 0 0 0.7rem;
-}
-
-.pi-feature-bio p:last-child {
-  margin-bottom: 0;
-}
-
-.pi-feature-identity .person-topics {
-  margin-top: 0.35rem;
-  font-size: 0.85rem;
-}
-
-@media (max-width: 820px) {
-  .pi-feature {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-}
-
-.pi-feature-identity .column-label {
-  margin: 0 0 0.25rem;
+.people-column .column-label {
+  margin: 0 0 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1207,23 +1180,42 @@ a {
   color: var(--muted);
 }
 
-.pi-feature-identity h3 {
-  margin: 0;
-  font-size: 1.35rem;
+/* Spacing between stacked groups (PI, then postdocs) in the left column. */
+.people-column-lead .people-grid + .column-label,
+.people-column-lead .pi-bio + .column-label {
+  margin-top: 1.5rem;
 }
 
-.pi-feature-identity h3 a {
-  color: var(--hopkins-blue);
+.pi-bio {
+  margin-top: 0.85rem;
+  color: #444;
+  line-height: 1.6;
+  font-size: 0.88rem;
 }
 
-.pi-feature-identity h3 a:hover {
-  text-decoration: underline;
+.pi-bio p {
+  margin: 0 0 0.65rem;
 }
 
-.team-subheading {
-  margin: 1rem 0 0.75rem;
-  font-size: 1.05rem;
-  color: var(--hopkins-blue);
+.pi-bio p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  .people-columns {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Stacked, the lead column has the full width to work with, so let the PI and
+     postdoc cards share a row like the team grid does. */
+  .people-grid-lead {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .pi-bio {
+    max-width: 60ch;
+  }
 }
 
 .people-grid {
@@ -1289,10 +1281,6 @@ a {
   color: var(--hopkins-blue);
 }
 
-.people-grid-wide {
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-}
-
 .person-photo {
   width: 96px;
   height: 96px;
@@ -1305,11 +1293,6 @@ a {
 .person-photo:hover,
 .person-card:hover .person-photo {
   filter: grayscale(0%);
-}
-
-.person-photo-lg {
-  width: 140px;
-  height: 140px;
 }
 
 .person-initials {
@@ -1326,97 +1309,9 @@ a {
   letter-spacing: 0.04em;
 }
 
-.person-initials-lg {
-  width: 140px;
-  height: 140px;
-  font-size: 1.75rem;
-}
-
 @media (max-width: 600px) {
-  .pi-feature {
-    text-align: left;
-  }
-
   .people-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  }
-}
-
-/* ── Sponsors band ──
-   Sits on white on purpose: several of these logos ship as opaque white
-   canvases rather than transparent PNGs, so any tinted background would show
-   them as visible rectangles. */
-.sponsors {
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 2.75rem 0 2.5rem;
-  margin-top: auto;
-}
-
-.sponsors-heading {
-  margin: 0 0 1.85rem;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* Fixed 4-up grid rather than flex-wrap. With 8 logos, letting them wrap
-   naturally leaves a single orphan on the second row at common widths; 4x2
-   (and 2x4 on small screens) always divides evenly. */
-.sponsors-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
-  gap: 2rem 2.5rem;
-}
-
-.sponsor-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
-
-/* Per-logo height comes from --sponsor-h (set in _data/sponsors.yml) so that
-   logos of very different aspect ratios read at similar visual weight. */
-.sponsor-logo {
-  height: var(--sponsor-h, 34px);
-  width: auto;
-  /* max-width + object-fit lets a wide wordmark scale down inside a narrow
-     column instead of overflowing or distorting. */
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.25s ease, opacity 0.25s ease;
-}
-
-/* Swap to full colour on hover/focus. Drop these two rules if a funder's brand
-   guidelines require their logo always be shown unmodified. */
-.sponsor-logo:hover,
-.sponsor-link:hover .sponsor-logo,
-.sponsor-link:focus-visible .sponsor-logo {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-.sponsor-link:focus-visible {
-  outline: 2px solid var(--hopkins-blue);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sponsor-logo {
-    transition: none;
   }
 }
 
@@ -1426,8 +1321,7 @@ a {
   color: white;
   padding: 0;
   font-size: 0.9rem;
-  /* Kept for the case where _data/sponsors.yml is empty and the band above
-     (which also carries margin-top:auto) is not rendered. */
+  /* Pins the footer to the bottom on short pages. */
   margin-top: auto;
 }
 
@@ -1601,11 +1495,6 @@ a {
     grid-column: 1 / -1;
     order: 3;
   }
-
-  .sponsors-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem 2rem;
-  }
 }
 
 @media (max-width: 420px) {
@@ -1637,8 +1526,7 @@ a {
 }
 
 /* Cascade grid children in rather than popping a whole grid at once. Scoped to
-   these two grids on purpose — the sponsor band and news list read better
-   arriving as a unit. */
+   these two grids on purpose — the news list reads better arriving as a unit. */
 .reveal .projects-grid > *,
 .reveal .people-grid > * {
   opacity: 0;

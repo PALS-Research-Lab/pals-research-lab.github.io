@@ -32,9 +32,16 @@ projects:
   - name: Patient heterogeneity
     people: Rhea Makkuni, Ram Chitti, Minseo Choi
     summary: >-
-      Why individuals sharing a psychiatric diagnosis can differ in their
-      underlying pathology and treatment trajectories, and how computational
-      systems can be designed to reflect and adapt to that heterogeneity.
+      Developing multimodal AI methods that integrate biological, electronic
+      health record (EHR), and longitudinal patient data to provide adaptive
+      clinical decision support under diagnostic uncertainty while improving our
+      understanding of patient heterogeneity and psychiatric comorbidity.
+
+  - name: Sensitivity classification
+    people: Ronald Deng
+    summary: >-
+      Building a classifier that flags sensitive content in mental-health text,
+      closely related to the compliance monitoring work in NAVIGATOR.
 
   - name: Reliable self-harm risk screening
     people: Meghana Karnam

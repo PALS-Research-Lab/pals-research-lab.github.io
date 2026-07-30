@@ -51,33 +51,11 @@
 
 {{ content }}
 
-<!-- {% comment %}
-  Sponsor band is opt-in per page via `show_sponsors: true` in front matter
-  (currently home and contact only), so it does not repeat on every page.
+{% comment %}
+  The "Supported By" sponsor band that used to sit here was removed at the PI's
+  request: listing funders led people to assume the lab is already funded. The
+  logo files and _data/sponsors.yml are kept (commented out) if it ever returns.
 {% endcomment %}
-{% if page.show_sponsors and site.data.sponsors and site.data.sponsors.size > 0 %}
-<section class="sponsors" aria-labelledby="sponsors-heading">
-  <div class="container">
-    <h2 id="sponsors-heading" class="sponsors-heading">Supported By</h2>
-    <ul class="sponsors-grid">
-      {% for sponsor in site.data.sponsors %}
-      {%- capture sponsor_logo -%}
-        <img src="/images/sponsors/{{ sponsor.file }}" alt="{{ sponsor.name }}"
-             class="sponsor-logo" style="--sponsor-h: {{ sponsor.height | default: 34 }}px"
-             width="{{ sponsor.w }}" height="{{ sponsor.h }}" loading="lazy" decoding="async" />
-      {%- endcapture -%}
-      <li class="sponsor-item">
-        {% if sponsor.url and sponsor.url != empty %}
-        <a href="{{ sponsor.url }}" class="sponsor-link" target="_blank" rel="noopener noreferrer">{{ sponsor_logo }}</a>
-        {% else %}
-        {{ sponsor_logo }}
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %} -->
 
 <footer class="footer">
   <div class="container footer-inner">
@@ -148,6 +126,21 @@
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+    }
+
+    // Randomise the students & collaborators grid on every load, so the order
+    // is never read as a ranking. people.html already shuffles at build time;
+    // this keeps a single build from always showing the same person first.
+    const teamGrid = document.getElementById('team-grid-container');
+    if (teamGrid) {
+      const cards = Array.prototype.slice.call(teamGrid.children);
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = tmp;
+      }
+      cards.forEach(function (card) { teamGrid.appendChild(card); });
     }
 
     // Subtle scroll reveals

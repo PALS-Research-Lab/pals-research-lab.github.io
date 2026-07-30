@@ -31,6 +31,7 @@ projects:
       We are researching how AI and LLMs can help caregivers and clinicians make safer,
       patient-specific medication decisions for older adults, focusing on
       polypharmacy, mental health, and data gaps in geriatric psychiatric care.
+      Our geriatric psychiatry work runs under this project.
 
 # Papers are NOT listed here. They live in _data/publications.yml; an entry
 # joins this page's "Selected work" by setting `area: ai-systems-agents`.

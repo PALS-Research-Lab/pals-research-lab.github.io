@@ -19,14 +19,21 @@ projects:
       hospitalization risk and output variability, underscoring the need for
       governance around these models before clinical deployment.
 
-  - name: Language drift in LLM responses
-    # TODO: originally described as a separate evaluation project, but drift is
-    # also central to NAVIGATOR ("tuning process maps even as concepts drift").
-    # Fold this in there if it is the same work.
+  - name: Detecting drift in chatbot input
     people: Rosa Jahankhah
     summary: >-
-      Detecting drift in the language of LLM responses over time, and what that
-      drift implies for evaluating deployed systems.
+      The people talking to a mental-health chatbot do not all talk the same
+      way: teenagers and older adults use different words and phrasing for the
+      same concerns, and the input a deployed system sees shifts over time. We
+      are working on detecting that shift and on mathematical models that
+      quantify how much drift has occurred.
+
+  - name: How mental health providers use chatbots
+    people: Ariel Kim
+    summary: >-
+      A survey of mental health providers on whether and how they use chatbots
+      in practice, and how they feel about them, to ground evaluation criteria
+      in what clinicians actually need from these tools.
 
 # Papers are NOT listed here. They live in _data/publications.yml; an entry
 # joins this page's "Selected work" by setting
