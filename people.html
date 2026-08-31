@@ -7,6 +7,7 @@ description: People at the PALS Research Lab
 
 {% assign pi_person = nil %}
 {% assign postdoc_list = "" | split: "," %}
+{% assign clinical_collaborator_list = "" | split: "," %}
 {% assign other_people_list = "" | split: "," %}
 {% assign alumni_list = "" | split: "," %}
 
@@ -15,6 +16,8 @@ description: People at the PALS Research Lab
     {% assign pi_person = person %}
   {% elsif person.tier == "postdoc" %}
     {% assign postdoc_list = postdoc_list | push: person %}
+  {% elsif person.tier == "clinical" %}
+    {% assign clinical_collaborator_list = clinical_collaborator_list | push: person %}
   {% elsif person.tier == "alumni" %}
     {% assign alumni_list = alumni_list | push: person %}
   {% else %}
@@ -60,6 +63,21 @@ description: People at the PALS Research Lab
           </div>
         </div>
       </div>
+
+      {% if clinical_collaborator_list.size > 0 %}
+      <div class="clinical-collaborators">
+        <p class="column-label">Clinical Collaborators</p>
+        <ul class="clinical-collaborator-list">
+          {% assign clinical_collaborators_sorted = clinical_collaborator_list | sort: "rank" %}
+          {% for person in clinical_collaborators_sorted %}
+          <li>
+            <span class="clinical-collaborator-name">{{ person.name }}</span>
+            <span class="clinical-collaborator-role">{{ person.role }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </div>
   </section>
 

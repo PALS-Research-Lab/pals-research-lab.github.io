@@ -1,7 +1,7 @@
 ---
-name: Derek Barisas
-role: Resident Affiliate
+name: Derek Barisas, M.D., Ph.D.
+role: Psychiatry Resident
 photo: 
-tier: alumni
-rank: 2
+tier: clinical
+rank: 3
 ---
