@@ -22,6 +22,16 @@
   <meta name="twitter:title" content="{{ page.title | default: site.title }}" />
   <meta name="twitter:description" content="{{ page.description | default: site.description }}" />
 </head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6R2588YZVP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6R2588YZVP');
+</script>
+
 <body>
 {% assign nav_active = page.nav %}
 {% if page.collection == "projects" %}
