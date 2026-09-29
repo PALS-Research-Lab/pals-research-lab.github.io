@@ -7,6 +7,14 @@
 # Award and recognition emojis are included in `venue`, so no template changes
 # are required.
 
+- title: A Policy-Driven Privacy Router for Clinical Text
+  authors: Ronald Deng, Ananya A. Joshi
+  venue: NewInML Workshop @ NeurIPS 2026
+  year: 2026
+  date: 2026-09-29
+  type: workshop
+  link: https://openreview.net/forum?id=iN4IdAZEOk
+
 - title: Precision Medicine for Mood Disorders in the Big Data Era
   authors: Ananya A. Joshi, Clio Eva Franklin, Michael Johnathan Charles Bray, Roy Adams, Kevin Li, Jacob Taylor, Fernando Goes, Peter Zandi, James Potash
   venue: International Review of Psychiatry
