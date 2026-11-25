@@ -1107,7 +1107,7 @@ a {
 
 .people-columns {
   display: grid;
-  grid-template-columns: minmax(190px, 240px) 1fr;
+  grid-template-columns: minmax(240px, min(38%, 360px)) 1fr;
   gap: 2.25rem;
   align-items: start;
   padding-top: 0.75rem;
@@ -1115,10 +1115,6 @@ a {
 
 .people-column {
   min-width: 0;
-}
-
-.people-grid-lead {
-  grid-template-columns: minmax(0, 1fr);
 }
 
 .people-column .column-label {
@@ -1208,10 +1204,6 @@ a {
     gap: 1.75rem;
   }
 
-  .people-grid-lead {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
   .pi-bio {
     max-width: 60ch;
   }
@@ -1230,6 +1222,10 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.85rem;
+}
+
+.people-grid-lead {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .people-grid-compact {
@@ -1287,6 +1283,13 @@ a {
   color: var(--hopkins-blue);
 }
 
+.person-bio {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
 .person-photo {
   width: 96px;
   height: 96px;
@@ -1325,31 +1328,22 @@ a {
   background: var(--hopkins-blue);
   color: white;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-top: auto;
 }
 
 .footer-inner {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 22rem));
+  grid-template-columns: repeat(2, minmax(0, 28rem));
   justify-content: center;
-  gap: 1.75rem 2.5rem;
-  align-items: start;
+  gap: 0.4rem 1.5rem;
+  align-items: center;
   text-align: center;
-  padding: 2.5rem 1.25rem 1.75rem;
-}
-
-.footer-heading {
-  margin: 0 0 0.65rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--hopkins-blue);
+  padding: 0.65rem 1rem;
 }
 
 .footer-text {
-  margin: 0 0 0.5rem;
+  margin: 0;
   color: #e0e6f0;
   line-height: 1.45;
 }
@@ -1367,16 +1361,19 @@ a {
   color: var(--hopkins-gold);
 }
 
-.footer-contact .footer-link {
-  display: block;
-  margin-top: 0.4rem;
+.footer-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem 0.75rem;
+  margin-top: 0.25rem;
 }
 
 .footer-github {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-inline: auto;
 }
 
 .footer-github svg {
@@ -1396,7 +1393,7 @@ a {
 .footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background: #0C0253;
-  padding: 1.25rem 0;
+  padding: 0.4rem 0;
 }
 
 .footer-bar-inner {
@@ -1413,11 +1410,11 @@ a {
   justify-self: start;
   background: #fff;
   border-radius: 6px;
-  padding: 7px 13px;
+  padding: 3px 7px;
 }
 
 .footer-jhu-logo {
-  height: 50px;
+  height: 27px;
   width: auto;
   max-width: 240px;
   object-fit: contain;
@@ -1433,7 +1430,7 @@ a {
   margin: 0;
   justify-self: center;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #c5d0e6;
 }
 
@@ -1445,7 +1442,7 @@ a {
 }
 
 .footer-pals-logo {
-  height: 54px;
+  height: 31px;
   width: auto;
   max-width: 200px;
   object-fit: contain;
@@ -1456,14 +1453,14 @@ a {
 @media (max-width: 720px) {
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 0.4rem;
   }
 
   .footer-bar-inner {
     grid-template-columns: auto auto;
     justify-content: space-between;
     justify-items: center;
-    row-gap: 1.1rem;
+    row-gap: 0.3rem;
   }
 
   .footer-copy {
@@ -1881,23 +1878,22 @@ demo-showcase-section {
 }
 
 .demo-showcase-heading {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
   max-width: 900px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.25rem;
 }
 
 .demo-showcase-heading h2 {
   margin: 0;
 }
 
-.demo-showcase-heading > p {
-  max-width: 30rem;
-  margin: 0;
-  line-height: 1.6;
-  opacity: 0.72;
+.demo-access-note {
+  margin: 0.65rem 0 0;
+  padding: 0.55rem 0.8rem;
+  border-left: 3px solid var(--hopkins-blue);
+  background: #f1f3f8;
+  color: #39465a;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .demo-showcase-kicker,
@@ -1992,27 +1988,22 @@ demo-showcase-section {
 }
 
 @media (max-width: 700px) {
-  .demo-showcase-heading {
-    display: block;
-  }
-
-  .demo-showcase-heading > p {
-    margin-top: 0.75rem;
-  }
-
   .demo-showcase-grid {
     grid-template-columns: 1fr;
   }
 }
 
 .pi-feature-section {
-  padding: 2.5rem 0 3rem;
+  padding: 1.225rem 0 1.47rem;
   background: white;
 }
 
 .pi-feature {
   position: relative;
-  min-height: clamp(440px, 46vw, 530px);
+  display: flex;
+  justify-content: flex-end;
+  min-height: clamp(216px, 22.54vw, 260px);
+  padding: clamp(0.6rem, 1.225vw, 1rem);
   overflow: hidden;
   border-radius: 18px;
   background: var(--hopkins-blue);
@@ -2028,7 +2019,8 @@ demo-showcase-section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 20%;
+  filter: saturate(70%);
 }
 
 .pi-feature::after {
@@ -2042,17 +2034,11 @@ demo-showcase-section {
 }
 
 .pi-feature-content {
-  position: absolute;
-  top: clamp(1.25rem, 2.5vw, 2rem);
-  right: clamp(1.25rem, 2.5vw, 2rem);
-  bottom: clamp(1.25rem, 2.5vw, 2rem);
   display: flex;
-  width: 52%;
-  min-height: 0;
-  padding: clamp(1.6rem, 3vw, 2.6rem);
+  width: 60%;
+  padding: clamp(0.8rem, 1.47vw, 1.25rem);
   flex-direction: column;
   justify-content: center;
-  overflow: auto;
   background: rgba(239, 242, 246, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.56);
   border-radius: 14px;
@@ -2062,7 +2048,7 @@ demo-showcase-section {
 }
 
 .pi-feature-label {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.4rem;
   color: var(--hopkins-blue);
   font-size: 0.75rem;
   font-weight: 700;
@@ -2073,12 +2059,12 @@ demo-showcase-section {
 .pi-feature-content h2 {
   margin: 0 0 0.45rem;
   color: var(--hopkins-blue);
-  font-size: clamp(1.8rem, 3.2vw, 2.65rem);
+  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
   line-height: 1.08;
 }
 
 .pi-feature-role {
-  margin: 0 0 1.15rem;
+  margin: 0 0 0.55rem;
   color: #4f5a6e;
   font-size: clamp(0.76rem, 1.25vw, 0.9rem);
   font-weight: 600;
@@ -2090,8 +2076,8 @@ demo-showcase-section {
   max-width: 29rem;
   margin: 0;
   color: #313b4d;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .pi-feature-link {
@@ -2114,8 +2100,8 @@ demo-showcase-section {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.35rem 0.55rem;
-  margin-top: 1rem;
-  padding-top: 0.9rem;
+  margin-top: 0.5rem;
+  padding-top: 0.45rem;
   border-top: 1px solid rgba(18, 0, 90, 0.16);
   color: #4f5a6e;
   font-size: clamp(0.7rem, 1vw, 0.8rem);
@@ -2139,30 +2125,25 @@ demo-showcase-section {
 
 @media (max-width: 760px) {
   .pi-feature {
+    --pi-photo-height: min(28.9vw, 162px);
     min-height: 0;
-    padding-top: min(59vw, 330px);
+    padding: var(--pi-photo-height) 0 0;
   }
 
   .pi-feature-image {
     bottom: auto;
-    height: min(59vw, 330px);
-    object-position: 28% center;
+    height: var(--pi-photo-height);
+    object-position: 28% 20%;
   }
 
   .pi-feature::after {
-    top: min(59vw, 330px);
+    top: var(--pi-photo-height);
     background: linear-gradient(135deg, #12005a, #0e5e8c);
   }
 
   .pi-feature-content {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
     width: 100%;
-    min-height: 0;
-    padding: 1.6rem 1.4rem 1.8rem;
-    overflow: visible;
+    padding: 0.8rem 0.7rem 0.875rem;
     background: rgba(239, 242, 246, 0.94);
     border: 0;
     border-radius: 0;
@@ -2176,7 +2157,6 @@ demo-showcase-section {
 
   .pi-feature-affiliations {
     gap: 0.35rem 0.6rem;
-    padding-top: 0.9rem;
     font-size: 0.76rem;
   }
 }

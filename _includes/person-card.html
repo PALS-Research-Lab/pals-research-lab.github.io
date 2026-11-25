@@ -26,4 +26,8 @@
   {% if include.person.now and include.person.now != empty %}
   <p class="person-now">{{ include.person.now }}</p>
   {% endif %}
+
+  {% if include.person.bio and include.person.bio != empty %}
+  <p class="person-bio">{{ include.person.bio | escape }}</p>
+  {% endif %}
 </div>

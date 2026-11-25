@@ -7,6 +7,7 @@ description: People at the PALS Research Lab
 
 {% assign pi_person = nil %}
 {% assign postdoc_list = "" | split: "," %}
+{% assign research_scientist_list = "" | split: "," %}
 {% assign clinical_collaborator_list = "" | split: "," %}
 {% assign other_people_list = "" | split: "," %}
 {% assign alumni_list = "" | split: "," %}
@@ -16,6 +17,8 @@ description: People at the PALS Research Lab
     {% assign pi_person = person %}
   {% elsif person.tier == "postdoc" %}
     {% assign postdoc_list = postdoc_list | push: person %}
+  {% elsif person.tier == "research_scientist" %}
+    {% assign research_scientist_list = research_scientist_list | push: person %}
   {% elsif person.tier == "clinical" %}
     {% assign clinical_collaborator_list = clinical_collaborator_list | push: person %}
   {% elsif person.tier == "alumni" %}
@@ -43,10 +46,19 @@ description: People at the PALS Research Lab
           {% endif %}
 
           {% if postdoc_list.size > 0 %}
-          <p class="column-label">Postdoctoral Researchers</p>
+          <p class="column-label">Postdoctoral Researcher</p>
           <div class="people-grid people-grid-lead">
             {% assign postdocs_sorted = postdoc_list | sort: "rank" %}
             {% for person in postdocs_sorted %}
+              {% include person-card.html person=person %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if research_scientist_list.size > 0 %}
+          <p class="column-label">Visiting Research Scientist</p>
+          <div class="people-grid people-grid-lead">
+            {% for person in research_scientist_list %}
               {% include person-card.html person=person %}
             {% endfor %}
           </div>

@@ -1,7 +1,7 @@
 {% assign project = include.project %}
 {% assign project_content = include.content | default: project.content %}
 
-<section id="{{ project.slug | default: project.title | slugify }}" class="section project-inline-detail reveal">
+<section id="{{ project.slug | default: project.title | slugify }}" class="section project-inline-detail">
   <div class="container">
 
     <div class="project-hero-grid{% unless project.graphic %} project-hero-grid-solo{% endunless %}">

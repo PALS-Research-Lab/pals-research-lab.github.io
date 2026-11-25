@@ -60,14 +60,13 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-col footer-brand">
-      <h3 class="footer-heading">{{ site.title }}</h3>
       <p class="footer-text">{{ site.description }}</p>
     </div>
     <div class="footer-col footer-contact">
-      <h3 class="footer-heading">Contact</h3>
       <p class="footer-text">{{ site.location }}</p>
+      <div class="footer-contact-links">
       {% if site.email %}
-      <p class="footer-text"><a href="mailto:{{ site.email }}" class="footer-link">{{ site.email }}</a></p>
+      <a href="mailto:{{ site.email }}" class="footer-link">{{ site.email }}</a>
       {% endif %}
       <a href="/contact" class="footer-link">Contact us &rarr;</a>
       <a href="https://github.com/orgs/PALS-Research-Lab/repositories" class="footer-link footer-github"
@@ -82,6 +81,7 @@
         </svg>
         GitHub
       </a>
+      </div>
     </div>
   </div>
   <div class="footer-bar">
